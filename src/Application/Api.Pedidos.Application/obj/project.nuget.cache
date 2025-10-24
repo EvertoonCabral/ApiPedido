@@ -1,8 +1,20 @@
 {
   "version": 2,
-  "dgSpecHash": "GCx6lEP8/LY=",
-  "success": true,
+  "dgSpecHash": "mmoFK7HcuPo=",
+  "success": false,
   "projectFilePath": "C:\\Users\\everton.cabral\\RiderProjects\\ApiProdutos\\src\\Application\\Api.Pedidos.Application\\Api.Pedidos.Application.csproj",
   "expectedPackageFiles": [],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "Unable to find project 'C:\\Users\\everton.cabral\\RiderProjects\\ApiProdutos\\src\\Application\\Api.Pedidos.Domain\\Api.Pedidos.Domain.csproj'. Check that the project reference is valid and that the project file exists.",
+      "projectPath": "C:\\Users\\everton.cabral\\RiderProjects\\ApiProdutos\\src\\Application\\Api.Pedidos.Application\\Api.Pedidos.Application.csproj",
+      "filePath": "C:\\Users\\everton.cabral\\RiderProjects\\ApiProdutos\\src\\Application\\Api.Pedidos.Application\\Api.Pedidos.Application.csproj",
+      "libraryId": "C:\\Users\\everton.cabral\\RiderProjects\\ApiProdutos\\src\\Application\\Api.Pedidos.Domain\\Api.Pedidos.Domain.csproj",
+      "targetGraphs": [
+        "net9.0"
+      ]
+    }
+  ]
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\everton.cabral\\RiderProjects\\ApiProdutos\\src\\Application\\Api.Pedidos.Application\\Api.Pedidos.Application.csproj": {}
+    "C:\\Users\\everton.cabral\\RiderProjects\\ApiProdutos\\src\\Presentation\\Api.Pedidos.WebApi\\Api.Pedidos.WebApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\everton.cabral\\RiderProjects\\ApiProdutos\\src\\Application\\Api.Pedidos.Application\\Api.Pedidos.Application.csproj": {
+    "C:\\Users\\everton.cabral\\RiderProjects\\ApiProdutos\\src\\Presentation\\Api.Pedidos.WebApi\\Api.Pedidos.WebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\everton.cabral\\RiderProjects\\ApiProdutos\\src\\Application\\Api.Pedidos.Application\\Api.Pedidos.Application.csproj",
-        "projectName": "Api.Pedidos.Application",
-        "projectPath": "C:\\Users\\everton.cabral\\RiderProjects\\ApiProdutos\\src\\Application\\Api.Pedidos.Application\\Api.Pedidos.Application.csproj",
+        "projectUniqueName": "C:\\Users\\everton.cabral\\RiderProjects\\ApiProdutos\\src\\Presentation\\Api.Pedidos.WebApi\\Api.Pedidos.WebApi.csproj",
+        "projectName": "Api.Pedidos.WebApi",
+        "projectPath": "C:\\Users\\everton.cabral\\RiderProjects\\ApiProdutos\\src\\Presentation\\Api.Pedidos.WebApi\\Api.Pedidos.WebApi.csproj",
         "packagesPath": "C:\\Users\\everton.cabral\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\everton.cabral\\RiderProjects\\ApiProdutos\\src\\Application\\Api.Pedidos.Application\\obj\\",
+        "outputPath": "C:\\Users\\everton.cabral\\RiderProjects\\ApiProdutos\\src\\Presentation\\Api.Pedidos.WebApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\DevExpress 20.2\\.NET Core Desktop Libraries\\Offline Packages",
@@ -44,8 +44,11 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\Users\\everton.cabral\\RiderProjects\\ApiProdutos\\src\\Application\\Api.Pedidos.Domain\\Api.Pedidos.Domain.csproj": {
-                "projectPath": "C:\\Users\\everton.cabral\\RiderProjects\\ApiProdutos\\src\\Application\\Api.Pedidos.Domain\\Api.Pedidos.Domain.csproj"
+              "C:\\Users\\everton.cabral\\RiderProjects\\ApiProdutos\\src\\Presentation\\Api.Pedidos.Application\\Api.Pedidos.Application.csproj": {
+                "projectPath": "C:\\Users\\everton.cabral\\RiderProjects\\ApiProdutos\\src\\Presentation\\Api.Pedidos.Application\\Api.Pedidos.Application.csproj"
+              },
+              "C:\\Users\\everton.cabral\\RiderProjects\\ApiProdutos\\src\\Presentation\\Api.Pedidos.Infra\\Api.Pedidos.Infra.csproj": {
+                "projectPath": "C:\\Users\\everton.cabral\\RiderProjects\\ApiProdutos\\src\\Presentation\\Api.Pedidos.Infra\\Api.Pedidos.Infra.csproj"
               }
             }
           }
@@ -65,6 +68,12 @@
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.OpenApi": {
+              "target": "Package",
+              "version": "[9.0.8, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -77,6 +86,9 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

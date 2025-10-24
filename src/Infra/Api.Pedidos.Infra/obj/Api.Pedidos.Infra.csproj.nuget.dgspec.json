@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\everton.cabral\\RiderProjects\\ApiProdutos\\src\\Application\\Api.Pedidos.Application\\Api.Pedidos.Application.csproj": {}
+    "C:\\Users\\everton.cabral\\RiderProjects\\ApiProdutos\\src\\Infra\\Api.Pedidos.Infra\\Api.Pedidos.Infra.csproj": {}
   },
   "projects": {
-    "C:\\Users\\everton.cabral\\RiderProjects\\ApiProdutos\\src\\Application\\Api.Pedidos.Application\\Api.Pedidos.Application.csproj": {
+    "C:\\Users\\everton.cabral\\RiderProjects\\ApiProdutos\\src\\Infra\\Api.Pedidos.Infra\\Api.Pedidos.Infra.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\everton.cabral\\RiderProjects\\ApiProdutos\\src\\Application\\Api.Pedidos.Application\\Api.Pedidos.Application.csproj",
-        "projectName": "Api.Pedidos.Application",
-        "projectPath": "C:\\Users\\everton.cabral\\RiderProjects\\ApiProdutos\\src\\Application\\Api.Pedidos.Application\\Api.Pedidos.Application.csproj",
+        "projectUniqueName": "C:\\Users\\everton.cabral\\RiderProjects\\ApiProdutos\\src\\Infra\\Api.Pedidos.Infra\\Api.Pedidos.Infra.csproj",
+        "projectName": "Api.Pedidos.Infra",
+        "projectPath": "C:\\Users\\everton.cabral\\RiderProjects\\ApiProdutos\\src\\Infra\\Api.Pedidos.Infra\\Api.Pedidos.Infra.csproj",
         "packagesPath": "C:\\Users\\everton.cabral\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\everton.cabral\\RiderProjects\\ApiProdutos\\src\\Application\\Api.Pedidos.Application\\obj\\",
+        "outputPath": "C:\\Users\\everton.cabral\\RiderProjects\\ApiProdutos\\src\\Infra\\Api.Pedidos.Infra\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\DevExpress 20.2\\.NET Core Desktop Libraries\\Offline Packages",
@@ -44,8 +44,11 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\Users\\everton.cabral\\RiderProjects\\ApiProdutos\\src\\Application\\Api.Pedidos.Domain\\Api.Pedidos.Domain.csproj": {
-                "projectPath": "C:\\Users\\everton.cabral\\RiderProjects\\ApiProdutos\\src\\Application\\Api.Pedidos.Domain\\Api.Pedidos.Domain.csproj"
+              "C:\\Users\\everton.cabral\\RiderProjects\\ApiProdutos\\src\\Infra\\Api.Pedidos.Application\\Api.Pedidos.Application.csproj": {
+                "projectPath": "C:\\Users\\everton.cabral\\RiderProjects\\ApiProdutos\\src\\Infra\\Api.Pedidos.Application\\Api.Pedidos.Application.csproj"
+              },
+              "C:\\Users\\everton.cabral\\RiderProjects\\ApiProdutos\\src\\Infra\\Api.Pedidos.Domain\\Api.Pedidos.Domain.csproj": {
+                "projectPath": "C:\\Users\\everton.cabral\\RiderProjects\\ApiProdutos\\src\\Infra\\Api.Pedidos.Domain\\Api.Pedidos.Domain.csproj"
               }
             }
           }

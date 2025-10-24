@@ -1,0 +1,34 @@
+{
+  "version": 2,
+  "dgSpecHash": "+m3YNnMaT1c=",
+  "success": false,
+  "projectFilePath": "C:\\Users\\everton.cabral\\RiderProjects\\ApiProdutos\\src\\Presentation\\Api.Pedidos.WebApi\\Api.Pedidos.WebApi.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\everton.cabral\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.8\\microsoft.aspnetcore.openapi.9.0.8.nupkg.sha512",
+    "C:\\Users\\everton.cabral\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "Unable to find project 'C:\\Users\\everton.cabral\\RiderProjects\\ApiProdutos\\src\\Presentation\\Api.Pedidos.Application\\Api.Pedidos.Application.csproj'. Check that the project reference is valid and that the project file exists.",
+      "projectPath": "C:\\Users\\everton.cabral\\RiderProjects\\ApiProdutos\\src\\Presentation\\Api.Pedidos.WebApi\\Api.Pedidos.WebApi.csproj",
+      "filePath": "C:\\Users\\everton.cabral\\RiderProjects\\ApiProdutos\\src\\Presentation\\Api.Pedidos.WebApi\\Api.Pedidos.WebApi.csproj",
+      "libraryId": "C:\\Users\\everton.cabral\\RiderProjects\\ApiProdutos\\src\\Presentation\\Api.Pedidos.Application\\Api.Pedidos.Application.csproj",
+      "targetGraphs": [
+        "net9.0"
+      ]
+    },
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "Unable to find project 'C:\\Users\\everton.cabral\\RiderProjects\\ApiProdutos\\src\\Presentation\\Api.Pedidos.Infra\\Api.Pedidos.Infra.csproj'. Check that the project reference is valid and that the project file exists.",
+      "projectPath": "C:\\Users\\everton.cabral\\RiderProjects\\ApiProdutos\\src\\Presentation\\Api.Pedidos.WebApi\\Api.Pedidos.WebApi.csproj",
+      "filePath": "C:\\Users\\everton.cabral\\RiderProjects\\ApiProdutos\\src\\Presentation\\Api.Pedidos.WebApi\\Api.Pedidos.WebApi.csproj",
+      "libraryId": "C:\\Users\\everton.cabral\\RiderProjects\\ApiProdutos\\src\\Presentation\\Api.Pedidos.Infra\\Api.Pedidos.Infra.csproj",
+      "targetGraphs": [
+        "net9.0"
+      ]
+    }
+  ]
+}

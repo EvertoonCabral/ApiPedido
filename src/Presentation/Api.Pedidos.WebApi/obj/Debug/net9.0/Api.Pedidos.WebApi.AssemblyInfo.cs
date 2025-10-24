@@ -10,12 +10,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("Api.Pedidos.Application")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("Api.Pedidos.WebApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8721edd5fb3bcf603e9706facbc58c6bd1b290e8")]
-[assembly: System.Reflection.AssemblyProductAttribute("Api.Pedidos.Application")]
-[assembly: System.Reflection.AssemblyTitleAttribute("Api.Pedidos.Application")]
+[assembly: System.Reflection.AssemblyProductAttribute("Api.Pedidos.WebApi")]
+[assembly: System.Reflection.AssemblyTitleAttribute("Api.Pedidos.WebApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // Gerado pela classe WriteCodeFragment do MSBuild.
