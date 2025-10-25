@@ -2,7 +2,7 @@ namespace Api.Pedidos.Domain.Enums;
 
 public enum StatusPedido
 {
-    ABERTO = 0,
-    FECHADO = 1,
-    CANCELADO = 2
+    Aberto = 0,
+    Fechado = 1,
+    Cancelado = 2
 }

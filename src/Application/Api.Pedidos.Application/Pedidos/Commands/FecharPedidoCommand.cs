@@ -31,12 +31,12 @@ namespace Api.Pedidos.Application.Pedidos.Commands
             var pedido = await _pedidoRepo.GetWithProdutosByIdAsync(request.PedidoId, cancellationToken);
             if (pedido == null) return false;
 
-            if (pedido?.Itens == null || !pedido.Itens.Any()) return false;
+            if (!pedido.Itens.Any()) return false;
 
-            if (pedido.Status != StatusPedido.ABERTO) return false;
+            if (pedido.Status != StatusPedido.Aberto) return false;
 
-            pedido.Status = StatusPedido.FECHADO;
-            pedido.DataAtualizacao = System.DateTime.UtcNow;
+            pedido.Status = StatusPedido.Fechado;
+            pedido.DataAtualizacao = DateTime.UtcNow;
 
             await _uow.SaveChangesAsync(cancellationToken);
             return true;

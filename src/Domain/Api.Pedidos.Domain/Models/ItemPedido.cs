@@ -1,4 +1,3 @@
-// src/Domain/Api.Pedidos.Domain/Models/ItemPedido.cs
 namespace Api.Pedidos.Domain.Models;
 
 public class ItemPedido

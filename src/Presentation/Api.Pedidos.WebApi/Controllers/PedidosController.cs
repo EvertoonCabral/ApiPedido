@@ -25,7 +25,7 @@ public class PedidosController : ControllerBase
     [HttpPost]
     [ProducesResponseType(typeof(int), StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<ActionResult<int>> IniciarPedido([FromBody] IniciarPedidoRequest body, CancellationToken ct)
+    public async Task<ActionResult<int>> IniciarPedido([FromBody] IniciarPedidoRequest? body, CancellationToken ct)
     {
         if (body is null || body.ClienteId <= 0)
             return BadRequest("ClienteId inválido.");
@@ -41,7 +41,7 @@ public class PedidosController : ControllerBase
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<IActionResult> AdicionarItem(int id, [FromBody] AdicionarProdutoAoPedidoRequest body, CancellationToken ct)
+    public async Task<IActionResult> AdicionarItem(int id, [FromBody] AdicionarProdutoAoPedidoRequest? body, CancellationToken ct)
     {
         if (body is null || body.ProdutoId <= 0 || body.Quantidade <= 0)
             return BadRequest("ProdutoId e Quantidade devem ser maiores que zero.");
@@ -57,7 +57,7 @@ public class PedidosController : ControllerBase
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<IActionResult> RemoverItem(int id, [FromBody] RemoverProdutoDoPedidoRequest body, CancellationToken ct)
+    public async Task<IActionResult> RemoverItem(int id, [FromBody] RemoverProdutoDoPedidoRequest? body, CancellationToken ct)
     {
         if (body is null || body.ProdutoId <= 0 || body.Quantidade <= 0)
             return BadRequest("ProdutoId e Quantidade devem ser maiores que zero.");

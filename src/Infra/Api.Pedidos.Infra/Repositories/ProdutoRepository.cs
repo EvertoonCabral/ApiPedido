@@ -10,7 +10,7 @@ public class ProdutoRepository : Repository<Produto>, IProdutoRepository
     public ProdutoRepository(ProjectDbContext context) : base(context) { }
 
     public async Task<IReadOnlyList<Produto>> ListAtivosAsync(CancellationToken ct = default)
-        => await _dbSet.AsNoTracking()
+        => await DbSet.AsNoTracking()
             .Where(p => p.IsAtivo)
             .ToListAsync(ct);
 }

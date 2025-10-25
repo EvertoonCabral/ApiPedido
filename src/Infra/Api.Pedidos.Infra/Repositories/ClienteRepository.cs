@@ -10,5 +10,5 @@ public class ClienteRepository : Repository<Cliente>, IClienteRepository
     public ClienteRepository(ProjectDbContext context) : base(context) { }
 
     public Task<Cliente?> GetByEmailAsync(string email, CancellationToken ct = default)
-        => _dbSet.AsNoTracking().FirstOrDefaultAsync(c => c.Email == email, ct);
+        => DbSet.AsNoTracking().FirstOrDefaultAsync(c => c.Email == email, ct);
 }

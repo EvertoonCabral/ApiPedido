@@ -34,7 +34,7 @@ namespace Api.Pedidos.Application.Pedidos.Commands
                 ClienteId = request.ClienteId,
                 DataAbertura = DateTime.UtcNow,
                 DataAtualizacao = DateTime.UtcNow,
-                Status = StatusPedido.ABERTO,
+                Status = StatusPedido.Aberto,
                 Itens = new()
             };
 
