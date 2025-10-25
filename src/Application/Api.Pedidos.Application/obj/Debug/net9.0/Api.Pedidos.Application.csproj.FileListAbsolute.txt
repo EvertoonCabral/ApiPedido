@@ -1,0 +1,16 @@
+C:\Users\Everton\Projects\ApiPedido\src\Application\Api.Pedidos.Application\bin\Debug\net9.0\Api.Pedidos.Application.deps.json
+C:\Users\Everton\Projects\ApiPedido\src\Application\Api.Pedidos.Application\bin\Debug\net9.0\Api.Pedidos.Application.dll
+C:\Users\Everton\Projects\ApiPedido\src\Application\Api.Pedidos.Application\bin\Debug\net9.0\Api.Pedidos.Application.pdb
+C:\Users\Everton\Projects\ApiPedido\src\Application\Api.Pedidos.Application\bin\Debug\net9.0\Api.Pedidos.Domain.dll
+C:\Users\Everton\Projects\ApiPedido\src\Application\Api.Pedidos.Application\bin\Debug\net9.0\Api.Pedidos.Domain.pdb
+C:\Users\Everton\Projects\ApiPedido\src\Application\Api.Pedidos.Application\obj\Debug\net9.0\Api.Pedidos.Application.csproj.AssemblyReference.cache
+C:\Users\Everton\Projects\ApiPedido\src\Application\Api.Pedidos.Application\obj\Debug\net9.0\Api.Pedidos.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Everton\Projects\ApiPedido\src\Application\Api.Pedidos.Application\obj\Debug\net9.0\Api.Pedidos.Application.AssemblyInfoInputs.cache
+C:\Users\Everton\Projects\ApiPedido\src\Application\Api.Pedidos.Application\obj\Debug\net9.0\Api.Pedidos.Application.AssemblyInfo.cs
+C:\Users\Everton\Projects\ApiPedido\src\Application\Api.Pedidos.Application\obj\Debug\net9.0\Api.Pedidos.Application.csproj.CoreCompileInputs.cache
+C:\Users\Everton\Projects\ApiPedido\src\Application\Api.Pedidos.Application\obj\Debug\net9.0\Api.Pedidos.Application.sourcelink.json
+C:\Users\Everton\Projects\ApiPedido\src\Application\Api.Pedidos.Application\obj\Debug\net9.0\Api.Pedi.CD4EC3CF.Up2Date
+C:\Users\Everton\Projects\ApiPedido\src\Application\Api.Pedidos.Application\obj\Debug\net9.0\Api.Pedidos.Application.dll
+C:\Users\Everton\Projects\ApiPedido\src\Application\Api.Pedidos.Application\obj\Debug\net9.0\refint\Api.Pedidos.Application.dll
+C:\Users\Everton\Projects\ApiPedido\src\Application\Api.Pedidos.Application\obj\Debug\net9.0\Api.Pedidos.Application.pdb
+C:\Users\Everton\Projects\ApiPedido\src\Application\Api.Pedidos.Application\obj\Debug\net9.0\ref\Api.Pedidos.Application.dll

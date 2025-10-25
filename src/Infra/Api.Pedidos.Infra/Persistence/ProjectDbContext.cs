@@ -10,6 +10,7 @@ public class ProjectDbContext : DbContext
     public DbSet<Cliente> Clientes => Set<Cliente>();
     public DbSet<Pedido> Pedidos => Set<Pedido>();
     public DbSet<Produto> Produtos => Set<Produto>();
+    public DbSet<ItemPedido> PedidoItens => Set<ItemPedido>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

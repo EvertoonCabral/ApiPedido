@@ -1,5 +1,3 @@
-// src/Infra/Api.Pedidos.Infra/Persistence/Configurations/ClienteConfiguration.cs
-
 using Api.Pedidos.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
