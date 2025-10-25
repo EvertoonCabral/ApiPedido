@@ -7,11 +7,12 @@ namespace Api.Pedidos.Application.Clientes.Commands;
 
 public class CadastrarClienteCommand : IRequest<int>
 {
-    public string Nome { get; set; } = default!;
-    public string Email { get; set; } = default!;
-    public string Telefone { get; set;} = default!;
-    public bool IsAtivo { get; set; } = true;
+    public string Nome { get; set; }
+    public string Email { get; set; }
+    public string Telefone { get; set;}
+    public bool IsAtivo { get; set; }
     public Endereco? Endereco { get; set; }
+    
 
     public CadastrarClienteCommand(string nome, string email, string telefone, bool isAtivo, Endereco? endereco)
     {
@@ -33,14 +34,26 @@ public class CadastrarClienteCommand : IRequest<int>
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<int> Handle(CadastrarClienteCommand request, CancellationToken cancellationToken)
+        public async Task<int> Handle(CadastrarClienteCommand request, CancellationToken ct)
         {
+            
+            Endereco? endereco = null;
+            if (request.Endereco is not null)
+            {
+                endereco = new Endereco(
+                    request.Endereco.Rua,
+                    request.Endereco.Numero,
+                    request.Endereco.Bairro,
+                    request.Endereco.Cidade,
+                    request.Endereco.Estado,
+                    request.Endereco.Cep
+                );
+            }
 
+            var cliente = Cliente.Criar(request.Nome, request.Email, request.Telefone, endereco, request.IsAtivo);
 
-            var cliente = Cliente.Criar(request.Nome, request.Email, request.Telefone, request.Endereco, request.IsAtivo);
-
-            await _clienteRepo.AddAsync(cliente, cancellationToken);
-            await _unitOfWork.SaveChangesAsync(cancellationToken);
+            await _clienteRepo.AddAsync(cliente, ct);
+            await _unitOfWork.SaveChangesAsync(ct);
 
             return cliente.Id;
         }

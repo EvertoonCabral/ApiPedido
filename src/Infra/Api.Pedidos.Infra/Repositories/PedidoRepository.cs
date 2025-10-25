@@ -10,16 +10,20 @@ public class PedidoRepository : Repository<Pedido>, IPedidoRepository
     public PedidoRepository(ProjectDbContext context) : base(context) { }
 
     public Task<Pedido?> GetWithProdutosByIdAsync(int id, CancellationToken ct = default)
-        => DbSet
+    {
+        return DbSet
             .Include(p => p.Itens)
             .ThenInclude(i => i.Produto)
             .AsNoTracking()
             .FirstOrDefaultAsync(p => p.Id == id, ct);
+    }
 
     public async Task<IReadOnlyList<Pedido>> ListByClienteAsync(int clienteId, CancellationToken ct = default)
-        => await DbSet.AsNoTracking()
+    {
+      return  await DbSet.AsNoTracking()
             .Where(p => p.ClienteId == clienteId)
             .ToListAsync(ct);
+    }
 
     public IQueryable<Pedido> Query() => DbSet.AsQueryable();
 }

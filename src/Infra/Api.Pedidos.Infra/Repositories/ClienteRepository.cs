@@ -21,6 +21,8 @@ public class ClienteRepository : Repository<Cliente>, IClienteRepository
             return await _context.Clientes
             .AsNoTracking()
             .Where(c => _context.Pedidos.Any(p => p.ClienteId == c.Id))
-            .ToListAsync(ct);    }
+            .ToListAsync(ct);
+            
+    }
     }
 

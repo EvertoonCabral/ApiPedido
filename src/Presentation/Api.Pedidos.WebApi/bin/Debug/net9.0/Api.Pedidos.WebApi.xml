@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Api.Pedidos.WebApi</name>
+    </assembly>
+    <members>
+        <member name="M:Api.Pedidos.WebApi.Controllers.ClientesController.Cadastrar(Api.Pedidos.WebApi.Contracts.Request.Clientes.CadastrarClienteRequest,System.Threading.CancellationToken)">
+            <summary>
+            Cadastra um novo cliente.
+            </summary>
+        </member>
+        <member name="M:Api.Pedidos.WebApi.Controllers.ClientesController.Listar(System.Threading.CancellationToken)">
+            <summary>
+            Lista todos os clientes.
+            </summary>
+        </member>
+        <member name="M:Api.Pedidos.WebApi.Controllers.ClientesController.ListarComPedidos(System.Threading.CancellationToken)">
+            <summary>
+            Lista clientes que possuem ao menos um pedido.
+            </summary>
+        </member>
+        <member name="M:Api.Pedidos.WebApi.Controllers.ClientesController.ObterPorId(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Obtém um cliente pelo seu identificador.
+            </summary>
+        </member>
+        <member name="M:Api.Pedidos.WebApi.Controllers.ClientesController.Editar(System.Int32,Api.Pedidos.WebApi.Contracts.Request.Clientes.EditarClienteRequest,System.Threading.CancellationToken)">
+            <summary>
+            Edita os dados de um cliente.
+            </summary>
+        </member>
+        <member name="M:Api.Pedidos.WebApi.Controllers.ClientesController.Inativar(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Inativa um cliente.
+            </summary>
+        </member>
+        <member name="M:Api.Pedidos.WebApi.Controllers.PedidosController.Listar(System.Nullable{System.Int32},System.String,System.Int32,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Lista pedidos com filtros e paginação.
+            </summary>
+        </member>
+        <member name="M:Api.Pedidos.WebApi.Controllers.PedidosController.ObterPorId(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Obtém um pedido pelo seu identificador.
+            </summary>
+        </member>
+        <member name="M:Api.Pedidos.WebApi.Controllers.PedidosController.IniciarPedido(Api.Pedidos.WebApi.Contracts.Request.IniciarPedidoRequest,System.Threading.CancellationToken)">
+            <summary>
+            Inicia um novo pedido para um cliente.
+            </summary>
+        </member>
+        <member name="M:Api.Pedidos.WebApi.Controllers.PedidosController.AdicionarItem(System.Int32,Api.Pedidos.WebApi.Contracts.Request.AdicionarProdutoAoPedidoRequest,System.Threading.CancellationToken)">
+            <summary>
+            Adiciona um item ao pedido.
+            </summary>
+        </member>
+        <member name="M:Api.Pedidos.WebApi.Controllers.PedidosController.Fechar(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Fecha o pedido, desde que as regras de negócio permitam.
+            </summary>
+        </member>
+        <member name="M:Api.Pedidos.WebApi.Controllers.PedidosController.Cancelar(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Cancela o pedido, se ainda estiver em status que permita cancelamento.
+            </summary>
+        </member>
+        <member name="M:Api.Pedidos.WebApi.Controllers.PedidosController.RemoverItem(System.Int32,Api.Pedidos.WebApi.Contracts.Request.RemoverProdutoDoPedidoRequest,System.Threading.CancellationToken)">
+            <summary>
+            Remove ou decrementa a quantidade de um item do pedido.
+            </summary>
+        </member>
+    </members>
+</doc>

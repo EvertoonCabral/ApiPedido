@@ -3,12 +3,12 @@ namespace Api.Pedidos.Domain.Models;
 public class Endereco
 {
 
-    public string Rua { get; private set; } = null!;
-    public string Numero { get; private set; } = null!;
-    public string Bairro { get; private set; } = null!;
-    public string Cidade { get; private set; } = null!;
-    public string Estado { get; private set; } = null!;
-    public string Cep { get; private set; } = null!;
+    public string Rua { get; set; } = null!;
+    public string Numero { get; set; } = null!;
+    public string Bairro { get; set; } = null!;
+    public string Cidade { get; set; } = null!;
+    public string Estado { get; set; } = null!;
+    public string Cep { get; set; } = null!;
 
     protected Endereco() { }
 

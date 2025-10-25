@@ -15,9 +15,8 @@ public class EditarClienteCommand : IRequest<Unit>
 
     public EditarClienteCommand() { }
 
-    public EditarClienteCommand(int clienteId, string nome, string email, string telefone, Endereco? endereco)
+    public EditarClienteCommand( string nome, string email, string telefone, Endereco? endereco)
     {
-        ClienteId = clienteId;
         Nome = nome;
         Email = email;
         Telefone = telefone;
@@ -38,9 +37,22 @@ public class EditarClienteCommand : IRequest<Unit>
         {
             var cliente = await _repo.GetByIdAsync(request.ClienteId, ct)
                           ?? throw new Exception("Cliente não encontrado.");
+            
+            
+            Endereco? endereco = null;
+            if (request.Endereco is not null)
+            {
+                endereco = new Endereco(
+                    request.Endereco.Rua,
+                    request.Endereco.Numero,
+                    request.Endereco.Bairro,
+                    request.Endereco.Cidade,
+                    request.Endereco.Estado,
+                    request.Endereco.Cep
+                );
+            }
 
-
-            cliente.Editar(request.Nome, request.Email, request.Telefone, request.Endereco);
+            cliente.Editar(request.Nome, request.Email, request.Telefone, endereco);
 
             await _repo.UpdateAsync(cliente);
             await _uow.SaveChangesAsync(ct);
