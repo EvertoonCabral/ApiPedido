@@ -9,5 +9,5 @@ public class Pedido
     public DateTime DataAbertura { get; set; }
     public DateTime DataAtualizacao { get; set; }
     public StatusPedido Status { get; set; }
-    public List<Produtos> Produtos { get; set; }
+    public List<Produto> Produtos { get; set; }
 }

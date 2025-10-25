@@ -1,6 +1,6 @@
 namespace Api.Pedidos.Domain.Models;
 
-public class Produtos
+public class Produto
 {
     public int Id { get; set; }
     public required string Nome { get; set; }

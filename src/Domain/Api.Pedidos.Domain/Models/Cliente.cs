@@ -1,6 +1,4 @@
-using Api.Pedidos.Domain.Models;
-
-namespace Api.Pedidos.Domain.Clientes;
+namespace Api.Pedidos.Domain.Models;
 
 public class Cliente
 {

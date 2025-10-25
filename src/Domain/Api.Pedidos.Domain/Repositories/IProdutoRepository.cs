@@ -3,7 +3,7 @@ using Api.Pedidos.Domain.Models;
 
 namespace Api.Pedidos.Domain.Repositories;
 
-public interface IProdutoRepository : IRepository<Produtos>
+public interface IProdutoRepository : IRepository<Produto>
 {
-    Task<IReadOnlyList<Produtos>> ListAtivosAsync(CancellationToken ct = default);
+    Task<IReadOnlyList<Produto>> ListAtivosAsync(CancellationToken ct = default);
 }
