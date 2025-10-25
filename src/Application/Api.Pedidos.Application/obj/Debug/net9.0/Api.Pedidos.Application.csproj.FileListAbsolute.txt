@@ -14,3 +14,5 @@ C:\Users\Everton\Projects\ApiPedido\src\Application\Api.Pedidos.Application\obj\
 C:\Users\Everton\Projects\ApiPedido\src\Application\Api.Pedidos.Application\obj\Debug\net9.0\refint\Api.Pedidos.Application.dll
 C:\Users\Everton\Projects\ApiPedido\src\Application\Api.Pedidos.Application\obj\Debug\net9.0\Api.Pedidos.Application.pdb
 C:\Users\Everton\Projects\ApiPedido\src\Application\Api.Pedidos.Application\obj\Debug\net9.0\ref\Api.Pedidos.Application.dll
+C:\Users\Everton\Projects\ApiPedido\src\Application\Api.Pedidos.Application\bin\Debug\net9.0\Api.Pedidos.Application.runtimeconfig.json
+C:\Users\Everton\Projects\ApiPedido\src\Application\Api.Pedidos.Application\obj\Debug\net9.0\Api.Pedidos.Application.genruntimeconfig.cache

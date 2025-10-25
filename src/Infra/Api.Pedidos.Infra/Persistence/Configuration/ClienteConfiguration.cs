@@ -28,7 +28,7 @@ public class ClienteConfiguration : IEntityTypeConfiguration<Cliente>
 
         builder.OwnsOne(c => c.Endereco, end =>
         {
-            end.Property(e => e.Logradouro).HasMaxLength(200);
+            end.Property(e => e.Rua).HasMaxLength(200);
             end.Property(e => e.Numero).HasMaxLength(50);
             end.Property(e => e.Bairro).HasMaxLength(100);
             end.Property(e => e.Cidade).HasMaxLength(100);

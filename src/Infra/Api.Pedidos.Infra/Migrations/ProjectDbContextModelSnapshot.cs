@@ -22,42 +22,6 @@ namespace Api.Pedidos.Infra.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Api.Pedidos.Domain.Models.Cliente", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
-
-                    b.Property<bool>("IsAtivo")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bit")
-                        .HasDefaultValue(true);
-
-                    b.Property<string>("Nome")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
-
-                    b.Property<string>("Telefone")
-                        .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("Email")
-                        .IsUnique();
-
-                    b.ToTable("Clientes", (string)null);
-                });
-
             modelBuilder.Entity("Api.Pedidos.Domain.Models.ItemPedido", b =>
                 {
                     b.Property<int>("Id")
@@ -160,9 +124,64 @@ namespace Api.Pedidos.Infra.Migrations
                     b.ToTable("Produtos", (string)null);
                 });
 
-            modelBuilder.Entity("Api.Pedidos.Domain.Models.Cliente", b =>
+            modelBuilder.Entity("Cliente", b =>
                 {
-                    b.OwnsOne("Api.Pedidos.Domain.Models.Endereco", "Endereco", b1 =>
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<bool>("IsAtivo")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<string>("Telefone")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Email")
+                        .IsUnique();
+
+                    b.ToTable("Clientes", (string)null);
+                });
+
+            modelBuilder.Entity("Api.Pedidos.Domain.Models.ItemPedido", b =>
+                {
+                    b.HasOne("Api.Pedidos.Domain.Models.Pedido", null)
+                        .WithMany("Itens")
+                        .HasForeignKey("PedidoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_ItemPedido_Pedido");
+
+                    b.HasOne("Api.Pedidos.Domain.Models.Produto", "Produto")
+                        .WithMany()
+                        .HasForeignKey("ProdutoId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired()
+                        .HasConstraintName("FK_ItemPedido_Produto");
+
+                    b.Navigation("Produto");
+                });
+
+            modelBuilder.Entity("Cliente", b =>
+                {
+                    b.OwnsOne("Endereco", "Endereco", b1 =>
                         {
                             b1.Property<int>("ClienteId")
                                 .HasColumnType("int");
@@ -187,18 +206,15 @@ namespace Api.Pedidos.Infra.Migrations
                                 .HasMaxLength(2)
                                 .HasColumnType("nvarchar(2)");
 
-                            b1.Property<int>("Id")
-                                .HasColumnType("int");
-
-                            b1.Property<string>("Logradouro")
-                                .IsRequired()
-                                .HasMaxLength(200)
-                                .HasColumnType("nvarchar(200)");
-
                             b1.Property<string>("Numero")
                                 .IsRequired()
                                 .HasMaxLength(50)
                                 .HasColumnType("nvarchar(50)");
+
+                            b1.Property<string>("Rua")
+                                .IsRequired()
+                                .HasMaxLength(200)
+                                .HasColumnType("nvarchar(200)");
 
                             b1.HasKey("ClienteId");
 
@@ -210,25 +226,6 @@ namespace Api.Pedidos.Infra.Migrations
 
                     b.Navigation("Endereco")
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("Api.Pedidos.Domain.Models.ItemPedido", b =>
-                {
-                    b.HasOne("Api.Pedidos.Domain.Models.Pedido", null)
-                        .WithMany("Itens")
-                        .HasForeignKey("PedidoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("FK_ItemPedido_Pedido");
-
-                    b.HasOne("Api.Pedidos.Domain.Models.Produto", "Produto")
-                        .WithMany()
-                        .HasForeignKey("ProdutoId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired()
-                        .HasConstraintName("FK_ItemPedido_Produto");
-
-                    b.Navigation("Produto");
                 });
 
             modelBuilder.Entity("Api.Pedidos.Domain.Models.Pedido", b =>
