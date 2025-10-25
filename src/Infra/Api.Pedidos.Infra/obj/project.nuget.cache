@@ -1,31 +1,26 @@
 {
   "version": 2,
-  "dgSpecHash": "3FKFiBiL1Mk=",
-  "success": false,
-  "projectFilePath": "C:\\Users\\everton.cabral\\RiderProjects\\ApiProdutos\\src\\Infra\\Api.Pedidos.Infra\\Api.Pedidos.Infra.csproj",
-  "expectedPackageFiles": [],
-  "logs": [
-    {
-      "code": "NU1104",
-      "level": "Error",
-      "message": "Unable to find project 'C:\\Users\\everton.cabral\\RiderProjects\\ApiProdutos\\src\\Infra\\Api.Pedidos.Domain\\Api.Pedidos.Domain.csproj'. Check that the project reference is valid and that the project file exists.",
-      "projectPath": "C:\\Users\\everton.cabral\\RiderProjects\\ApiProdutos\\src\\Infra\\Api.Pedidos.Infra\\Api.Pedidos.Infra.csproj",
-      "filePath": "C:\\Users\\everton.cabral\\RiderProjects\\ApiProdutos\\src\\Infra\\Api.Pedidos.Infra\\Api.Pedidos.Infra.csproj",
-      "libraryId": "C:\\Users\\everton.cabral\\RiderProjects\\ApiProdutos\\src\\Infra\\Api.Pedidos.Domain\\Api.Pedidos.Domain.csproj",
-      "targetGraphs": [
-        "net9.0"
-      ]
-    },
-    {
-      "code": "NU1104",
-      "level": "Error",
-      "message": "Unable to find project 'C:\\Users\\everton.cabral\\RiderProjects\\ApiProdutos\\src\\Infra\\Api.Pedidos.Application\\Api.Pedidos.Application.csproj'. Check that the project reference is valid and that the project file exists.",
-      "projectPath": "C:\\Users\\everton.cabral\\RiderProjects\\ApiProdutos\\src\\Infra\\Api.Pedidos.Infra\\Api.Pedidos.Infra.csproj",
-      "filePath": "C:\\Users\\everton.cabral\\RiderProjects\\ApiProdutos\\src\\Infra\\Api.Pedidos.Infra\\Api.Pedidos.Infra.csproj",
-      "libraryId": "C:\\Users\\everton.cabral\\RiderProjects\\ApiProdutos\\src\\Infra\\Api.Pedidos.Application\\Api.Pedidos.Application.csproj",
-      "targetGraphs": [
-        "net9.0"
-      ]
-    }
-  ]
+  "dgSpecHash": "Zsm9ZdTab+g=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Everton\\Projects\\ApiPedido\\src\\Infra\\Api.Pedidos.Infra\\Api.Pedidos.Infra.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Everton\\.nuget\\packages\\mediatr\\13.1.0\\mediatr.13.1.0.nupkg.sha512",
+    "C:\\Users\\Everton\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
+    "C:\\Users\\Everton\\.nuget\\packages\\microsoft.entityframeworkcore\\9.0.10\\microsoft.entityframeworkcore.9.0.10.nupkg.sha512",
+    "C:\\Users\\Everton\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\9.0.10\\microsoft.entityframeworkcore.abstractions.9.0.10.nupkg.sha512",
+    "C:\\Users\\Everton\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\9.0.10\\microsoft.entityframeworkcore.analyzers.9.0.10.nupkg.sha512",
+    "C:\\Users\\Everton\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\9.0.10\\microsoft.extensions.caching.abstractions.9.0.10.nupkg.sha512",
+    "C:\\Users\\Everton\\.nuget\\packages\\microsoft.extensions.caching.memory\\9.0.10\\microsoft.extensions.caching.memory.9.0.10.nupkg.sha512",
+    "C:\\Users\\Everton\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\9.0.10\\microsoft.extensions.dependencyinjection.9.0.10.nupkg.sha512",
+    "C:\\Users\\Everton\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\9.0.10\\microsoft.extensions.dependencyinjection.abstractions.9.0.10.nupkg.sha512",
+    "C:\\Users\\Everton\\.nuget\\packages\\microsoft.extensions.logging\\9.0.10\\microsoft.extensions.logging.9.0.10.nupkg.sha512",
+    "C:\\Users\\Everton\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\9.0.10\\microsoft.extensions.logging.abstractions.9.0.10.nupkg.sha512",
+    "C:\\Users\\Everton\\.nuget\\packages\\microsoft.extensions.options\\9.0.10\\microsoft.extensions.options.9.0.10.nupkg.sha512",
+    "C:\\Users\\Everton\\.nuget\\packages\\microsoft.extensions.primitives\\9.0.10\\microsoft.extensions.primitives.9.0.10.nupkg.sha512",
+    "C:\\Users\\Everton\\.nuget\\packages\\microsoft.identitymodel.abstractions\\8.14.0\\microsoft.identitymodel.abstractions.8.14.0.nupkg.sha512",
+    "C:\\Users\\Everton\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\8.14.0\\microsoft.identitymodel.jsonwebtokens.8.14.0.nupkg.sha512",
+    "C:\\Users\\Everton\\.nuget\\packages\\microsoft.identitymodel.logging\\8.14.0\\microsoft.identitymodel.logging.8.14.0.nupkg.sha512",
+    "C:\\Users\\Everton\\.nuget\\packages\\microsoft.identitymodel.tokens\\8.14.0\\microsoft.identitymodel.tokens.8.14.0.nupkg.sha512"
+  ],
+  "logs": []
 }

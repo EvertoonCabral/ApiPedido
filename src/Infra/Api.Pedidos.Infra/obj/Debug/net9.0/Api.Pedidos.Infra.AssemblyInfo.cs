@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Api.Pedidos.Infra")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8721edd5fb3bcf603e9706facbc58c6bd1b290e8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3167ee85e81c948bc0bb804268bec1b16542b8c4")]
 [assembly: System.Reflection.AssemblyProductAttribute("Api.Pedidos.Infra")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Api.Pedidos.Infra")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
