@@ -1,3 +1,4 @@
+using Api.Pedidos.Application.Pedidos.Mappings;
 using Api.Pedidos.Domain.Abstractions;
 using Api.Pedidos.Domain.Repositories;
 using Api.Pedidos.Infra.Persistence;
@@ -28,6 +29,8 @@ builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
 builder.Services.AddScoped<IPedidoRepository, PedidoRepository>();
 builder.Services.AddScoped<IProdutoRepository, ProdutoRepository>();
+
+builder.Services.AddAutoMapper(typeof(ProjectProfile).Assembly);
 
 var app = builder.Build();
 

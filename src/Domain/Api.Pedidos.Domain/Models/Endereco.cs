@@ -1,3 +1,5 @@
+namespace Api.Pedidos.Domain.Models;
+
 public class Endereco
 {
 

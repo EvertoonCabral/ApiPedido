@@ -15,18 +15,27 @@ public class Repository<T> :  IRepository<T> where T : class
         Context = context;
         DbSet = context.Set<T>();
     }
-    
+
     public virtual async Task<T?> GetByIdAsync(int id, CancellationToken ct = default)
-        => await DbSet.FindAsync(new object?[] { id }, ct);
+    {
+      return await DbSet.FindAsync(new object?[] { id }, ct);
+    }
 
     public virtual async Task<IReadOnlyList<T>> ListAsync(CancellationToken ct = default)
-        => await DbSet.AsNoTracking().ToListAsync(ct);
+    {
+        return await DbSet.AsNoTracking().ToListAsync(ct);
+    }
 
-    public virtual async Task<IReadOnlyList<T>> ListAsync(Expression<Func<T, bool>> predicate, CancellationToken ct = default)
-        => await DbSet.AsNoTracking().Where(predicate).ToListAsync(ct);
-    
+    public virtual async Task<IReadOnlyList<T>> ListAsync(Expression<Func<T, bool>> predicate,
+        CancellationToken ct = default)
+    {
+        return await DbSet.AsNoTracking().Where(predicate).ToListAsync(ct);
+    }
+
     public virtual async Task<bool> ExistsAsync(Expression<Func<T, bool>> predicate, CancellationToken ct = default)
-        => await DbSet.AsNoTracking().AnyAsync(predicate, ct);
+    {
+        return await DbSet.AsNoTracking().AnyAsync(predicate, ct);
+    }
 
     public virtual async Task<T> AddAsync(T entity, CancellationToken ct = default)
     {

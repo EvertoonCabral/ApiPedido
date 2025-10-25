@@ -1,4 +1,3 @@
-// src/Domain/Api.Pedidos.Domain/Models/Pedido.cs
 using Api.Pedidos.Domain.Enums;
 
 namespace Api.Pedidos.Domain.Models;

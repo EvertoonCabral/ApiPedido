@@ -5,6 +5,6 @@ namespace Api.Pedidos.Domain.Repositories;
 
 public interface IClienteRepository : IRepository<Cliente>
 {
-    Task<Cliente?> GetByEmailAsync(string email, CancellationToken ct = default);
+    Task<IReadOnlyList<Cliente>> ListarComPedidosAsync(CancellationToken ct = default);
     
 }
