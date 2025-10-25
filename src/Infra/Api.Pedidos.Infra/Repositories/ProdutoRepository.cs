@@ -1,12 +1,13 @@
 using Api.Pedidos.Domain.Repositories;
 using Api.Pedidos.Domain.Models;
+using Api.Pedidos.Infra.Persistence;
 using Microsoft.EntityFrameworkCore;
 
 namespace Api.Pedidos.Infra.Repositories;
 
 public class ProdutoRepository : Repository<Produto>, IProdutoRepository
 {
-    public ProdutoRepository(DbContext context) : base(context) { }
+    public ProdutoRepository(ProjectDbContext context) : base(context) { }
 
     public async Task<IReadOnlyList<Produto>> ListAtivosAsync(CancellationToken ct = default)
         => await _dbSet.AsNoTracking()

@@ -1,12 +1,13 @@
 using Api.Pedidos.Domain.Models;
 using Api.Pedidos.Domain.Repositories;
+using Api.Pedidos.Infra.Persistence;
 using Microsoft.EntityFrameworkCore;
 
 namespace Api.Pedidos.Infra.Repositories;
 
 public class PedidoRepository : Repository<Pedido>, IPedidoRepository
 {
-    public PedidoRepository(DbContext context) : base(context) { }
+    public PedidoRepository(ProjectDbContext context) : base(context) { }
 
     public Task<Pedido?> GetWithProdutosByIdAsync(int id, CancellationToken ct = default)
         => _dbSet
@@ -19,4 +20,6 @@ public class PedidoRepository : Repository<Pedido>, IPedidoRepository
         => await _dbSet.AsNoTracking()
             .Where(p => p.ClienteId == clienteId)
             .ToListAsync(ct);
+
+    public IQueryable<Pedido> Query() => _dbSet.AsQueryable();
 }

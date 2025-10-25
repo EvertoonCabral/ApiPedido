@@ -1,5 +1,6 @@
 using System.Linq.Expressions;
 using Api.Pedidos.Domain.Abstractions;
+using Api.Pedidos.Infra.Persistence;
 using Microsoft.EntityFrameworkCore;
 
 namespace Api.Pedidos.Infra.Repositories;
@@ -9,7 +10,7 @@ public class Repository<T> :  IRepository<T> where T : class
     protected readonly DbContext _context;
     protected readonly DbSet<T> _dbSet;
         
-    public Repository(DbContext context)
+    public Repository(ProjectDbContext context)
     {
         _context = context;
         _dbSet = context.Set<T>();
