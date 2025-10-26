@@ -32,7 +32,7 @@ public class ClienteConfiguration : IEntityTypeConfiguration<Cliente>
             end.Property(e => e.Numero).HasMaxLength(50);
             end.Property(e => e.Bairro).HasMaxLength(100);
             end.Property(e => e.Cidade).HasMaxLength(100);
-            end.Property(e => e.Estado).HasMaxLength(2);
+            end.Property(e => e.Uf).HasMaxLength(2);
             end.Property(e => e.Cep).HasMaxLength(20);
             
             end.WithOwner();
