@@ -34,6 +34,8 @@ public class ClienteConfiguration : IEntityTypeConfiguration<Cliente>
             end.Property(e => e.Cidade).HasMaxLength(100);
             end.Property(e => e.Estado).HasMaxLength(2);
             end.Property(e => e.Cep).HasMaxLength(20);
+            
+            end.WithOwner();
         });
 
         builder.HasIndex(c => c.Email).IsUnique();
