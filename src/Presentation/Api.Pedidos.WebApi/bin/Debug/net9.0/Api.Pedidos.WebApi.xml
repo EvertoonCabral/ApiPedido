@@ -4,11 +4,6 @@
         <name>Api.Pedidos.WebApi</name>
     </assembly>
     <members>
-        <member name="M:Api.Pedidos.WebApi.Controllers.ClientesController.Cadastrar(Api.Pedidos.WebApi.Contracts.Request.Clientes.CadastrarClienteRequest,System.Threading.CancellationToken)">
-            <summary>
-            Cadastra um novo cliente.
-            </summary>
-        </member>
         <member name="M:Api.Pedidos.WebApi.Controllers.ClientesController.Listar(System.Threading.CancellationToken)">
             <summary>
             Lista todos os clientes.
@@ -22,6 +17,11 @@
         <member name="M:Api.Pedidos.WebApi.Controllers.ClientesController.ObterPorId(System.Int32,System.Threading.CancellationToken)">
             <summary>
             Obtém um cliente pelo seu identificador.
+            </summary>
+        </member>
+        <member name="M:Api.Pedidos.WebApi.Controllers.ClientesController.Cadastrar(Api.Pedidos.WebApi.Contracts.Request.Clientes.CadastrarClienteRequest,System.Threading.CancellationToken)">
+            <summary>
+            Cadastra um novo cliente.
             </summary>
         </member>
         <member name="M:Api.Pedidos.WebApi.Controllers.ClientesController.Editar(System.Int32,Api.Pedidos.WebApi.Contracts.Request.Clientes.EditarClienteRequest,System.Threading.CancellationToken)">

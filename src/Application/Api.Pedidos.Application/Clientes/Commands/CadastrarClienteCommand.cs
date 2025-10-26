@@ -45,7 +45,7 @@ public class CadastrarClienteCommand : IRequest<int>
                     request.Endereco.Numero,
                     request.Endereco.Bairro,
                     request.Endereco.Cidade,
-                    request.Endereco.Estado,
+                    request.Endereco.Uf,
                     request.Endereco.Cep
                 );
             }

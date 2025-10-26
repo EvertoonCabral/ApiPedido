@@ -7,5 +7,4 @@ public class ClienteDto
     public string Email { get; set; } = default!;
     public bool IsAtivo { get; set; }
     public string Telefone { get; set; } = default!;
-    public int? EnderecoId { get; set; }
 }

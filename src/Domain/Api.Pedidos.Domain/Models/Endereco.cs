@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace Api.Pedidos.Domain.Models;
 
 public class Endereco
@@ -7,18 +9,20 @@ public class Endereco
     public string Numero { get; set; } = null!;
     public string Bairro { get; set; } = null!;
     public string Cidade { get; set; } = null!;
-    public string Estado { get; set; } = null!;
+    
+    [StringLength(2, MinimumLength = 2, ErrorMessage = "Estado (UF) deve ter 2 caracteres.")]
+    public string Uf { get; set; } = null!;
     public string Cep { get; set; } = null!;
 
     protected Endereco() { }
 
-    public Endereco(string rua, string numero, string bairro, string cidade, string estado, string cep)
+    public Endereco(string rua, string numero, string bairro, string cidade, string uf, string cep)
     {
         Rua = rua;
         Numero = numero;
         Bairro = bairro;
         Cidade = cidade;
-        Estado = estado;
+        Uf = uf;
         Cep = cep;
     }
 }

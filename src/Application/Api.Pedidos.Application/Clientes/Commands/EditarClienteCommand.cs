@@ -7,22 +7,21 @@ namespace Api.Pedidos.Application.Clientes.Commands;
 
 public class EditarClienteCommand : IRequest<Unit>
 {
-    public int ClienteId { get; set; }
-    public string Nome { get; set; } = default!;
-    public string Email { get; set; } = default!;
-    public string Telefone { get; set; } = default!;
-    public Endereco? Endereco { get; set; }
+    public int Id { get; }
+    public string Nome { get; }
+    public string Email { get; }
+    public string Telefone { get; }
+    public Endereco? Endereco { get; }
 
-    public EditarClienteCommand() { }
-
-    public EditarClienteCommand( string nome, string email, string telefone, Endereco? endereco)
+    public EditarClienteCommand(int id, string nome, string email, string telefone, Endereco? endereco)
     {
+        Id = id;
         Nome = nome;
         Email = email;
         Telefone = telefone;
         Endereco = endereco;
     }
-
+}
     public class Handler : IRequestHandler<EditarClienteCommand, Unit>
     {
         private readonly IClienteRepository _repo;
@@ -35,7 +34,7 @@ public class EditarClienteCommand : IRequest<Unit>
 
         public async Task<Unit> Handle(EditarClienteCommand request, CancellationToken ct)
         {
-            var cliente = await _repo.GetByIdAsync(request.ClienteId, ct)
+            var cliente = await _repo.GetByIdAsync(request.Id, ct)
                           ?? throw new Exception("Cliente não encontrado.");
             
             
@@ -47,9 +46,15 @@ public class EditarClienteCommand : IRequest<Unit>
                     request.Endereco.Numero,
                     request.Endereco.Bairro,
                     request.Endereco.Cidade,
-                    request.Endereco.Estado,
+                    request.Endereco.Uf,
                     request.Endereco.Cep
                 );
+            }
+            if (request.Endereco is not null)
+            {
+                var e = request.Endereco;
+                if (!string.IsNullOrWhiteSpace(e.Uf) && e.Uf.Length > 2)
+                    throw new ArgumentException("Estado deve ter 2 caracteres (UF).");
             }
 
             cliente.Editar(request.Nome, request.Email, request.Telefone, endereco);
@@ -59,4 +64,3 @@ public class EditarClienteCommand : IRequest<Unit>
             return Unit.Value;
         }
     }
-}

@@ -93,7 +93,6 @@ C:\Users\Everton\Projects\ApiPedido\src\Presentation\Api.Pedidos.WebApi\bin\Debu
 C:\Users\Everton\Projects\ApiPedido\src\Presentation\Api.Pedidos.WebApi\bin\Debug\net9.0\FluentValidation.dll
 C:\Users\Everton\Projects\ApiPedido\src\Presentation\Api.Pedidos.WebApi\bin\Debug\net9.0\FluentValidation.DependencyInjectionExtensions.dll
 C:\Users\Everton\Projects\ApiPedido\src\Presentation\Api.Pedidos.WebApi\bin\Debug\net9.0\Humanizer.dll
-C:\Users\Everton\Projects\ApiPedido\src\Presentation\Api.Pedidos.WebApi\bin\Debug\net9.0\MediatR.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\Everton\Projects\ApiPedido\src\Presentation\Api.Pedidos.WebApi\bin\Debug\net9.0\Microsoft.Build.Locator.dll
 C:\Users\Everton\Projects\ApiPedido\src\Presentation\Api.Pedidos.WebApi\bin\Debug\net9.0\Microsoft.CodeAnalysis.dll
 C:\Users\Everton\Projects\ApiPedido\src\Presentation\Api.Pedidos.WebApi\bin\Debug\net9.0\Microsoft.CodeAnalysis.CSharp.dll

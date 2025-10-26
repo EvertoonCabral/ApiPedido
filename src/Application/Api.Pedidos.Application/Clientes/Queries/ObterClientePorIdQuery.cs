@@ -6,11 +6,7 @@ namespace Api.Pedidos.Application.Clientes.Queries;
 
 public class ObterClientePorIdQuery : IRequest<Cliente>
 {
-    public int ClienteId { get; set; }
-
-    public ObterClientePorIdQuery() { }
-    public ObterClientePorIdQuery(int clienteId) => ClienteId = clienteId;
-
+    public int Id { get; set; }
     public class Handler : IRequestHandler<ObterClientePorIdQuery, Cliente>
     {
         private readonly IClienteRepository _clienteRepo;
@@ -18,7 +14,10 @@ public class ObterClientePorIdQuery : IRequest<Cliente>
         public Handler(IClienteRepository clienteRepo) => _clienteRepo = clienteRepo;
 
         public async Task<Cliente> Handle(ObterClientePorIdQuery request, CancellationToken ct)
-            => await _clienteRepo.GetByIdAsync(request.ClienteId, ct)
-               ?? throw new Exception("Cliente não encontrado.");
+        {
+            return await _clienteRepo.GetByIdAsync(request.Id, ct)
+                       ?? throw new Exception("Cliente não encontrado.");
+        }
+         
     }
 }
