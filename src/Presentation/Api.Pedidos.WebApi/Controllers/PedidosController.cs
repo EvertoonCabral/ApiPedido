@@ -143,7 +143,7 @@ public class PedidosController : ControllerBase
     /// <summary>
     /// Remove ou decrementa a quantidade de um item do pedido.
     /// </summary>
-    [HttpDelete("{id:int}/itens")]
+    [HttpDelete("{id:int}/remover-produto")]
     [ProducesResponseType(typeof(ApiResponse<object?>), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ApiResponse<object?>), StatusCodes.Status400BadRequest)]
     [ProducesResponseType(typeof(ApiResponse<object?>), StatusCodes.Status404NotFound)]

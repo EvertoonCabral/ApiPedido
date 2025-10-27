@@ -37,7 +37,7 @@ namespace Api.Pedidos.Application.Pedidos.Commands
 
         public async Task<bool> Handle(AdicionarProdutoAoPedidoCommand request, CancellationToken cancellationToken)
         {
-            var pedido = await _pedidoRepo.GetWithProdutosByIdAsync(request.PedidoId, cancellationToken);
+            var pedido = await _pedidoRepo.GetByIdAsync(request.PedidoId, cancellationToken);
             if (pedido == null) return false;
 
             var produto = await _produtoRepo.GetByIdAsync(request.ProdutoId, cancellationToken);
