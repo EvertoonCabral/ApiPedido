@@ -69,5 +69,15 @@
             Remove ou decrementa a quantidade de um item do pedido.
             </summary>
         </member>
+        <member name="M:Api.Pedidos.WebApi.Controllers.ProdutoController.Cadastrar(Api.Pedidos.WebApi.Contracts.Request.Produtos.CadastrarProdutoRequest,System.Threading.CancellationToken)">
+            <summary>
+            Cadastrar um novo Produto.
+            </summary>
+        </member>
+        <member name="M:Api.Pedidos.WebApi.Controllers.ProdutoController.ObterPorId(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Obtém um cliente pelo seu identificador.
+            </summary>
+        </member>
     </members>
 </doc>

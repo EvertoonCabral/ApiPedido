@@ -59,10 +59,10 @@ public class PedidosController : ControllerBase
     [ProducesResponseType(typeof(ApiResponse<object?>), StatusCodes.Status404NotFound)]
     public async Task<ActionResult<ApiResponse<PedidoDto>>> ObterPorId([FromRoute] int id, CancellationToken ct = default)
     {
-        var dto = await _mediator.Send(new ObterPedidoPorIdQuery(id), ct);
-        return dto is null
+        var result = await _mediator.Send(new ObterPedidoPorIdQuery(id), ct);
+        return result is null
             ? NotFound(ApiResponse<object?>.Fail("Pedido não encontrado.", HttpContext.TraceIdentifier))
-            : Ok(ApiResponse<PedidoDto>.Ok(dto));
+            : Ok(ApiResponse<PedidoDto>.Ok(result));
     }
     
     // =========================
@@ -75,12 +75,9 @@ public class PedidosController : ControllerBase
     [HttpPost("iniciar-pedido")]
     [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status201Created)]
     [ProducesResponseType(typeof(ApiResponse<object?>), StatusCodes.Status400BadRequest)]
-    public async Task<ActionResult<ApiResponse<object>>> IniciarPedido([FromBody] IniciarPedidoRequest? body, CancellationToken ct = default)
+    public async Task<ActionResult<ApiResponse<object>>> IniciarPedido([FromBody] IniciarPedidoRequest request, CancellationToken ct = default)
     {
-        if (body is null || body.ClienteId <= 0)
-            return BadRequest(ApiResponse<object?>.Fail("ClienteId inválido.", HttpContext.TraceIdentifier));
-
-        var id = await _mediator.Send(new IniciarPedidoCommand(body.ClienteId), ct);
+        var id = await _mediator.Send(new IniciarPedidoCommand(request.ClienteId), ct);
 
         var response = ApiResponse<object>.Ok(
             new { id },
@@ -97,13 +94,13 @@ public class PedidosController : ControllerBase
     [ProducesResponseType(typeof(ApiResponse<object?>), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ApiResponse<object?>), StatusCodes.Status400BadRequest)]
     [ProducesResponseType(typeof(ApiResponse<object?>), StatusCodes.Status404NotFound)]
-    public async Task<ActionResult<ApiResponse<object?>>> AdicionarItem([FromRoute] int id, [FromBody] AdicionarProdutoAoPedidoRequest? body, CancellationToken ct = default)
+    public async Task<ActionResult<ApiResponse<object?>>> AdicionarItem([FromRoute] int id, [FromBody] AdicionarProdutoAoPedidoRequest request, CancellationToken ct = default)
     {
-        if (body is null || body.ProdutoId <= 0 || body.Quantidade <= 0)
-            return BadRequest(ApiResponse<object?>.Fail("ProdutoId e Quantidade devem ser maiores que zero.", HttpContext.TraceIdentifier));
+        if (request.Quantidade <= 0)
+            return BadRequest(ApiResponse<object?>.Fail("Quantidade devem ser maiores que zero.", HttpContext.TraceIdentifier));
 
-        var ok = await _mediator.Send(new AdicionarProdutoAoPedidoCommand(id, body.ProdutoId, body.Quantidade), ct);
-        if (!ok)
+        var result = await _mediator.Send(new AdicionarProdutoAoPedidoCommand(id, request.ProdutoId, request.Quantidade), ct);
+        if (!result)
             return NotFound(ApiResponse<object?>.Fail("Pedido ou produto não encontrado.", HttpContext.TraceIdentifier));
 
         return Ok(ApiResponse<object?>.Ok(null, "Produto adicionado ao pedido com sucesso.", HttpContext.TraceIdentifier));
@@ -117,8 +114,8 @@ public class PedidosController : ControllerBase
     [ProducesResponseType(typeof(ApiResponse<object?>), StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<ApiResponse<object?>>> Fechar([FromRoute] int id, CancellationToken ct = default)
     {
-        var ok = await _mediator.Send(new FecharPedidoCommand(id), ct);
-        if (!ok)
+        var result = await _mediator.Send(new FecharPedidoCommand(id), ct);
+        if (!result)
             return BadRequest(ApiResponse<object?>.Fail("Não foi possível fechar o pedido.", HttpContext.TraceIdentifier));
 
         return Ok(ApiResponse<object?>.Ok(null, "Pedido fechado com sucesso.", HttpContext.TraceIdentifier));
@@ -132,8 +129,8 @@ public class PedidosController : ControllerBase
     [ProducesResponseType(typeof(ApiResponse<object?>), StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<ApiResponse<object?>>> Cancelar([FromRoute] int id, CancellationToken ct = default)
     {
-        var ok = await _mediator.Send(new CancelarPedidoCommand(id), ct);
-        if (!ok)
+        var result = await _mediator.Send(new CancelarPedidoCommand(id), ct);
+        if (!result)
             return BadRequest(ApiResponse<object?>.Fail("Não foi possível cancelar o pedido.", HttpContext.TraceIdentifier));
 
         return Ok(ApiResponse<object?>.Ok(null, "Pedido cancelado com sucesso.", HttpContext.TraceIdentifier));
@@ -150,13 +147,13 @@ public class PedidosController : ControllerBase
     [ProducesResponseType(typeof(ApiResponse<object?>), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ApiResponse<object?>), StatusCodes.Status400BadRequest)]
     [ProducesResponseType(typeof(ApiResponse<object?>), StatusCodes.Status404NotFound)]
-    public async Task<ActionResult<ApiResponse<object?>>> RemoverItem([FromRoute] int id, [FromBody] RemoverProdutoDoPedidoRequest? body, CancellationToken ct = default)
+    public async Task<ActionResult<ApiResponse<object?>>> RemoverItem([FromRoute] int id, [FromBody] RemoverProdutoDoPedidoRequest request, CancellationToken ct = default)
     {
-        if (body is null || body.ProdutoId <= 0 || body.Quantidade <= 0)
-            return BadRequest(ApiResponse<object?>.Fail("ProdutoId e Quantidade devem ser maiores que zero.", HttpContext.TraceIdentifier));
+        if (request.Quantidade <= 0)
+            return BadRequest(ApiResponse<object?>.Fail("Quantidade deve ser maior que zero.", HttpContext.TraceIdentifier));
 
-        var ok = await _mediator.Send(new RemoverProdutoDoPedidoCommand(id, body.ProdutoId, body.Quantidade), ct);
-        if (!ok)
+        var result = await _mediator.Send(new RemoverProdutoDoPedidoCommand(id, request.ProdutoId, request.Quantidade), ct);
+        if (!result)
             return NotFound(ApiResponse<object?>.Fail("Pedido ou item não encontrado.", HttpContext.TraceIdentifier));
 
         return Ok(ApiResponse<object?>.Ok(null, "Item removido do pedido com sucesso.", HttpContext.TraceIdentifier));

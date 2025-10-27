@@ -56,9 +56,7 @@ public class ClientesController : ControllerBase
     public async Task<ActionResult<ApiResponse<ClienteDto>>> ObterPorId(int id, CancellationToken ct = default)
     {
         var cliente = await _mediator.Send(new ObterClientePorIdQuery { Id = id }, ct);
-        return cliente is null
-            ? NotFound(ApiResponse<object?>.Fail("Cliente não encontrado.", HttpContext.TraceIdentifier))
-            : Ok(ApiResponse<Cliente>.Ok(cliente));
+        return Ok(ApiResponse<Cliente>.Ok(cliente));
     }
 
     // =========================
@@ -71,27 +69,27 @@ public class ClientesController : ControllerBase
     [HttpPost]
     [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status201Created)]
     [ProducesResponseType(typeof(ApiResponse<object?>), StatusCodes.Status400BadRequest)]
-    public async Task<ActionResult<ApiResponse<object>>> Cadastrar([FromBody] CadastrarClienteRequest? body, CancellationToken ct = default)
+    public async Task<ActionResult<ApiResponse<object>>> Cadastrar([FromBody] CadastrarClienteRequest? request, CancellationToken ct = default)
     {
-        if (body is null)
+        if (request is null)
             return BadRequest(ApiResponse<object?>.Fail("Body inválido.", HttpContext.TraceIdentifier));
         
         var cmd = new CadastrarClienteCommand(
-            nome: body.Nome,
-            email: body.Email,
-            telefone: body.Telefone,
-            isAtivo: body.IsAtivo ?? true,
-            endereco: body.Endereco
+            nome: request.Nome,
+            email: request.Email,
+            telefone: request.Telefone,
+            isAtivo: request.IsAtivo ?? true,
+            endereco: request.Endereco
         );
 
         var id = await _mediator.Send(cmd, ct);
 
-        var response = ApiResponse<object>.Ok(
+        var result = ApiResponse<object>.Ok(
             new { id },
             "Cliente criado com sucesso.",
             HttpContext.TraceIdentifier);
 
-        return CreatedAtAction(nameof(ObterPorId), new { id }, response);
+        return CreatedAtAction(nameof(ObterPorId), new { id }, result);
     }
 
     // =========================
@@ -104,17 +102,17 @@ public class ClientesController : ControllerBase
     [HttpPut("{id:int}")]
     [ProducesResponseType(typeof(ApiResponse<ClienteDto?>), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ApiResponse<ClienteDto?>), StatusCodes.Status400BadRequest)]
-    public async Task<ActionResult<ApiResponse<ClienteDto?>>> Editar(int id, [FromBody] EditarClienteRequest? body, CancellationToken ct = default)
+    public async Task<ActionResult<ApiResponse<ClienteDto?>>> Editar(int id, [FromBody] EditarClienteRequest? request, CancellationToken ct = default)
     {
-        if (body is null)
+        if (request is null)
             return BadRequest(ApiResponse<ClienteDto?>.Fail("Body inválido.", HttpContext.TraceIdentifier));
 
         var cmd = new EditarClienteCommand(
             id: id,
-            nome: body.Nome,
-            email: body.Email,
-            telefone: body.Telefone,
-            endereco: body.Endereco 
+            nome: request.Nome,
+            email: request.Email,
+            telefone: request.Telefone,
+            endereco: request.Endereco 
         );
 
         await _mediator.Send(cmd, ct);

@@ -7,7 +7,7 @@ namespace Api.Pedidos.Application.Pedidos.Queries
 {
     public class ObterPedidoPorIdQuery : IRequest<PedidoDto?>
     {
-        public int Id { get; set; }
+        public int Id { get; }
 
         public ObterPedidoPorIdQuery(int id)
         {

@@ -9,6 +9,7 @@ public class ProjectProfile : Profile
     public ProjectProfile()
     {
         CreateMap<ItemPedido, ItemPedidoDto>().ReverseMap();
+        CreateMap<Produto, ProdutoCadastroDto>().ReverseMap();
         CreateMap<Cliente, ClienteDto>().ReverseMap();
         CreateMap<Pedido, PedidoDto>()
             .ForMember(d => d.Status, o => o.MapFrom(s => s.Status.ToString()))
