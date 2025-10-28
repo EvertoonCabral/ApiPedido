@@ -17,13 +17,12 @@ public class PedidoRepository : Repository<Pedido>, IPedidoRepository
             .AsNoTracking()
             .FirstOrDefaultAsync(p => p.Id == id, ct);
     }
-
-    public async Task<IReadOnlyList<Pedido>> ListByClienteAsync(int clienteId, CancellationToken ct = default)
+    public async Task<Pedido?> GetWithItemAndProdutoAsync(int pedidoId, int produtoId, CancellationToken ct = default)
     {
-      return  await DbSet.AsNoTracking()
-            .Where(p => p.ClienteId == clienteId)
-            .ToListAsync(ct);
+        return await DbSet
+            .Include(p => p.Itens.Where(i => i.ProdutoId == produtoId))
+            .ThenInclude(i => i.Produto)
+            .FirstOrDefaultAsync(p => p.Id == pedidoId, ct);
     }
-
     public IQueryable<Pedido> Query() => DbSet.AsQueryable();
 }

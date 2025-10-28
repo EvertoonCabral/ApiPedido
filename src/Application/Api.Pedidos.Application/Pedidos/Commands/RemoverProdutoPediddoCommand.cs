@@ -33,7 +33,7 @@ namespace Api.Pedidos.Application.Pedidos.Commands
         {
             if (request.QuantidadeRemover <= 0) return false;
 
-            var pedido = await _pedidoRepo.GetWithProdutosByIdAsync(request.PedidoId, cancellationToken);
+            var pedido = await _pedidoRepo.GetWithItemAndProdutoAsync(request.PedidoId, request.ProdutoId, cancellationToken);
             if (pedido == null) return false;
 
             var item = pedido.Itens.FirstOrDefault(i => i.ProdutoId == request.ProdutoId);
