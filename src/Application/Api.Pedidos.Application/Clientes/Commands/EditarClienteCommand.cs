@@ -5,7 +5,7 @@ using MediatR;
 
 namespace Api.Pedidos.Application.Clientes.Commands;
 
-public class EditarClienteCommand : IRequest<Unit>
+public class EditarClienteCommand : IRequest<Cliente>
 {
     public int Id { get; }
     public string Nome { get; }
@@ -22,7 +22,7 @@ public class EditarClienteCommand : IRequest<Unit>
         Endereco = endereco;
     }
 }
-    public class Handler : IRequestHandler<EditarClienteCommand, Unit>
+    public class Handler : IRequestHandler<EditarClienteCommand, Cliente>
     {
         private readonly IClienteRepository _repo;
         private readonly IUnitOfWork _uow;
@@ -32,7 +32,7 @@ public class EditarClienteCommand : IRequest<Unit>
             _repo = repo; _uow = uow;
         }
 
-        public async Task<Unit> Handle(EditarClienteCommand request, CancellationToken ct)
+        public async Task<Cliente> Handle(EditarClienteCommand request, CancellationToken ct)
         {
             var cliente = await _repo.GetByIdAsync(request.Id, ct)
                           ?? throw new Exception("Cliente não encontrado.");
@@ -65,6 +65,6 @@ public class EditarClienteCommand : IRequest<Unit>
 
             await _repo.UpdateAsync(cliente);
             await _uow.SaveChangesAsync(ct);
-            return Unit.Value;
+            return cliente;
         }
     }
