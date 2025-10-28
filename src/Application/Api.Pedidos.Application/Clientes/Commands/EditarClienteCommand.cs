@@ -37,6 +37,10 @@ public class EditarClienteCommand : IRequest<Unit>
             var cliente = await _repo.GetByIdAsync(request.Id, ct)
                           ?? throw new Exception("Cliente não encontrado.");
             
+            if (cliente.IsAtivo == false)
+            {
+                throw new Exception($"O Pedido não pode ser editado pois o cliente {request.Nome} esta inativo.");
+            }
             
             Endereco? endereco = null;
             if (request.Endereco is not null)

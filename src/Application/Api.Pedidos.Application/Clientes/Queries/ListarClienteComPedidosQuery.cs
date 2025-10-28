@@ -21,7 +21,7 @@ public class ListarClientesComPedidosQuery : IRequest<IReadOnlyList<ClienteDto>>
 
         public async Task<IReadOnlyList<ClienteDto>> Handle(ListarClientesComPedidosQuery request, CancellationToken ct)
         {
-            var clientes = await _clienteRepo.ListAsync(ct);
+            var clientes = await _clienteRepo.ListarComPedidosAsync(ct);
             return _mapper.Map<IReadOnlyList<ClienteDto>>(clientes);
         }
     }

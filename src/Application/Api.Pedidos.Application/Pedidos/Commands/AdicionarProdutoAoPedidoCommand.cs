@@ -41,7 +41,7 @@ namespace Api.Pedidos.Application.Pedidos.Commands
             if (pedido == null) return false;
 
             var produto = await _produtoRepo.GetByIdAsync(request.ProdutoId, cancellationToken);
-            if (produto == null || !produto.IsAtivo) return false;
+            if (produto == null || !produto.IsAtivo) throw new Exception("Produto deve estar ativo");
 
             var item = pedido.Itens.FirstOrDefault(i => i.ProdutoId == request.ProdutoId);
             if (item == null)
@@ -60,7 +60,7 @@ namespace Api.Pedidos.Application.Pedidos.Commands
                 item.Quantidade += request.Quantidade;
             }
 
-            pedido.DataAtualizacao = DateTime.UtcNow;
+            pedido.DataAtualizacao = DateTime.Now;
 
             await _uow.SaveChangesAsync(cancellationToken);
             return true;

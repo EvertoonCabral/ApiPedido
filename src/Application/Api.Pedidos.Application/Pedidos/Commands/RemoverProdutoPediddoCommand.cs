@@ -46,7 +46,7 @@ namespace Api.Pedidos.Application.Pedidos.Commands
                 pedido.Itens.Remove(item);
             }
 
-            pedido.DataAtualizacao = DateTime.UtcNow;
+            pedido.DataAtualizacao = DateTime.Now;
 
             await _uow.SaveChangesAsync(cancellationToken);
             return true;

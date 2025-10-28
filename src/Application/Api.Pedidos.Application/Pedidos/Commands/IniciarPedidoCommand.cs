@@ -32,8 +32,8 @@ namespace Api.Pedidos.Application.Pedidos.Commands
             var pedido = new Pedido
             {
                 ClienteId = request.ClienteId,
-                DataAbertura = DateTime.UtcNow,
-                DataAtualizacao = DateTime.UtcNow,
+                DataAbertura = DateTime.Now,
+                DataAtualizacao = DateTime.Now,
                 Status = StatusPedido.Aberto,
                 Itens = new()
             };

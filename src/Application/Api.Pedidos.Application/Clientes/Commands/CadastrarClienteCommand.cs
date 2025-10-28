@@ -36,6 +36,11 @@ public class CadastrarClienteCommand : IRequest<int>
 
         public async Task<int> Handle(CadastrarClienteCommand request, CancellationToken ct)
         {
+
+            if (request.IsAtivo == false)
+            {
+                throw new Exception($"O Pedido não pode ser aberto pois o cliente {request.Nome} esta inativo.");
+            }
             
             Endereco? endereco = null;
             if (request.Endereco is not null)

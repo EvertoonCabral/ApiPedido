@@ -32,11 +32,11 @@ namespace Api.Pedidos.Application.Pedidos.Commands
             if (pedido == null) return false;
 
 
-            if (pedido.Status != StatusPedido.Aberto)
+            if (pedido.Status == StatusPedido.Cancelado ||  pedido.Status == StatusPedido.Fechado)
                 return false;
 
             pedido.Status = StatusPedido.Cancelado;
-            pedido.DataAtualizacao = DateTime.UtcNow;
+            pedido.DataAtualizacao = DateTime.Now;
 
             await _uow.SaveChangesAsync(cancellationToken);
             return true;

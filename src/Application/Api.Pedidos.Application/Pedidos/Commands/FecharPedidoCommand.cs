@@ -36,7 +36,7 @@ namespace Api.Pedidos.Application.Pedidos.Commands
             if (pedido.Status != StatusPedido.Aberto) return false;
 
             pedido.Status = StatusPedido.Fechado;
-            pedido.DataAtualizacao = DateTime.UtcNow;
+            pedido.DataAtualizacao = DateTime.Now;
 
             await _uow.SaveChangesAsync(cancellationToken);
             return true;
