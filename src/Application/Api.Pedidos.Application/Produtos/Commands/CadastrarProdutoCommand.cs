@@ -57,7 +57,7 @@ public class Handler : IRequestHandler<CadastrarProdutoCommand, ProdutoCadastroD
             throw new Exception("Preço informado invalido");
         }
         
-       var produto = Produto.Criar(request.Nome, request.Descricao, request.Preco,  request.PrecoVenda,request.DataCadastro, request.DataAtualizacao, request.IsAtivo );
+       var produto = Produto.Criar(request.Nome, request.Descricao, request.Preco,  request.PrecoVenda, request.IsAtivo );
        
        await _produtoRepo.AddAsync(produto, ct);
        await _unitOfWork.SaveChangesAsync();

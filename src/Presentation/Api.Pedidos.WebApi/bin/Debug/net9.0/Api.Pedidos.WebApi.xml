@@ -79,5 +79,25 @@
             Obtém um cliente pelo seu identificador.
             </summary>
         </member>
+        <member name="M:Api.Pedidos.WebApi.Controllers.ProdutoController.Listar(System.Threading.CancellationToken)">
+            <summary>
+            Lista todos os produtos.
+            </summary>
+        </member>
+        <member name="M:Api.Pedidos.WebApi.Controllers.ProdutoController.Editar(System.Int32,EditarProdutoRequest,System.Threading.CancellationToken)">
+            <summary>
+            Edita os dados de um produto.
+            </summary>
+        </member>
+        <member name="M:Api.Pedidos.WebApi.Controllers.ProdutoController.Inativar(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Inativa um produto.
+            </summary>
+        </member>
+        <member name="M:Api.Pedidos.WebApi.Controllers.ProdutoController.Ativar(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Ativa um produto.
+            </summary>
+        </member>
     </members>
 </doc>

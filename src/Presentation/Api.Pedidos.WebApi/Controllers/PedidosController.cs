@@ -20,9 +20,7 @@ public class PedidosController : ControllerBase
         _mediator = mediator;
     }
 
-    // =========================
-    // GET
-    // =========================
+
     
     /// <summary>
     /// Lista pedidos com filtros e paginação.
@@ -65,9 +63,7 @@ public class PedidosController : ControllerBase
             : Ok(ApiResponse<PedidoDto>.Ok(result));
     }
     
-    // =========================
-    // POST
-    // =========================
+
 
     /// <summary>
     /// Inicia um novo pedido para um cliente.
@@ -136,9 +132,7 @@ public class PedidosController : ControllerBase
         return Ok(ApiResponse<object?>.Ok(null, "Pedido cancelado com sucesso.", HttpContext.TraceIdentifier));
     }
 
-    // =========================
-    // DELETE
-    // =========================
+
 
     /// <summary>
     /// Remove ou decrementa a quantidade de um item do pedido.

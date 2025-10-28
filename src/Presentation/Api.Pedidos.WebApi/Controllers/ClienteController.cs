@@ -21,9 +21,7 @@ public class ClientesController : ControllerBase
         _mediator = mediator;
     }
 
-    // =========================
-    // GET
-    // =========================
+
 
     /// <summary>
     /// Lista todos os clientes.
@@ -59,9 +57,7 @@ public class ClientesController : ControllerBase
         return Ok(ApiResponse<Cliente>.Ok(cliente));
     }
 
-    // =========================
-    // POST
-    // =========================
+
 
     /// <summary>
     /// Cadastra um novo cliente.
@@ -92,9 +88,7 @@ public class ClientesController : ControllerBase
         return CreatedAtAction(nameof(ObterPorId), new { id }, result);
     }
 
-    // =========================
-    // PUT
-    // =========================
+
 
     /// <summary>
     /// Edita os dados de um cliente.
@@ -120,9 +114,7 @@ public class ClientesController : ControllerBase
         return Ok(ApiResponse<ClienteDto?>.Ok(null, "Cliente atualizado com sucesso.", HttpContext.TraceIdentifier));
     }
 
-    // =========================
-    // PATCH
-    // =========================
+
 
     /// <summary>
     /// Inativa um cliente.

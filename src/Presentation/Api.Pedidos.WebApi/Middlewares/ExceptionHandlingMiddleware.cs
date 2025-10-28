@@ -22,7 +22,6 @@ public class ExceptionHandlingMiddleware
         {
             await _next(context);
 
-            // Trata 400
             if (context.Response.StatusCode == (int)HttpStatusCode.BadRequest &&
                 context.Items.TryGetValue("ModelStateErrors", out var modelStateObj) &&
                 modelStateObj is SerializableError modelErrors)
