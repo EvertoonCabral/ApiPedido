@@ -2,15 +2,24 @@ namespace Api.Pedidos.Domain.Models;
 
 public class Cliente
 {
-    public int Id { get; private set; }
-    public string Nome { get; private set; } = default!;
-    public string Email { get; private set; } = default!;
+    public int Id { get; private set; } 
+    public string Nome { get; private set; } = string.Empty;
+    public string Email { get; private set; } = string.Empty;
     public bool IsAtivo { get; private set; }
-    public string Telefone { get; private set; } = default!;
+    public string Telefone { get; private set; } = string.Empty;
     public Endereco? Endereco { get; private set; }
 
     protected Cliente()
     {
+    }
+    public Cliente(int id, string nome, string email, bool isAtivo, string telefone,  Endereco? endereco)
+    {
+        Id = id;
+        Nome = nome;
+        Email = email;
+        IsAtivo = isAtivo;
+        Telefone = telefone;
+        Endereco = endereco;
     }
 
     public static Cliente Criar(string nome, string email, string telefone, Endereco? endereco = null,

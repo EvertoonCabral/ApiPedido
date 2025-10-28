@@ -5,14 +5,14 @@ namespace Api.Pedidos.Domain.Models;
 public class Endereco
 {
 
-    public string Rua { get; set; } = null!;
-    public string Numero { get; set; } = null!;
-    public string Bairro { get; set; } = null!;
-    public string Cidade { get; set; } = null!;
+    public string? Rua { get; set; } 
+    public string? Numero { get; set; }
+    public string? Bairro { get; set; } 
+    public string? Cidade { get; set; } 
     
     [StringLength(2, MinimumLength = 2, ErrorMessage = "Estado (UF) deve ter 2 caracteres.")]
-    public string Uf { get; set; } = null!;
-    public string Cep { get; set; } = null!;
+    public string? Uf { get; set; } 
+    public string? Cep { get; set; } 
 
     protected Endereco() { }
 

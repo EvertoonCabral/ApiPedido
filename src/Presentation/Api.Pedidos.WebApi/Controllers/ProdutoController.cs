@@ -19,7 +19,7 @@ public class ProdutoController : ControllerBase
     {
         _mediator = mediator;
     }
-    
+
 
     /// <summary>
     /// Cadastrar um novo Produto.
@@ -28,10 +28,10 @@ public class ProdutoController : ControllerBase
     [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status201Created)]
     [ProducesResponseType(typeof(ApiResponse<object?>), StatusCodes.Status400BadRequest)]
     [ProducesResponseType(typeof(ApiResponse<object?>), StatusCodes.Status500InternalServerError)]
-    public async Task<IActionResult> Cadastrar([FromBody] CadastrarProdutoRequest request, CancellationToken ct = default)
+    public async Task<IActionResult> Cadastrar([FromBody] CadastrarProdutoRequest request,
+        CancellationToken ct = default)
     {
-        if (request is null)
-            return BadRequest(ApiResponse<object?>.Fail("Body inválido.", HttpContext.TraceIdentifier));
+
 
         var cmd = new CadastrarProdutoCommand(
             nome: request.Nome,
@@ -60,22 +60,26 @@ public class ProdutoController : ControllerBase
             response
         );
     }
-    
+
 
     /// <summary>
     /// Obtém um cliente pelo seu identificador.
     /// </summary>
-    [HttpGet("{id:int}")]
+    [HttpGet("{produtoId:int}")]
     [ProducesResponseType(typeof(ApiResponse<Produto>), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ApiResponse<object?>), StatusCodes.Status404NotFound)]
-    public async Task<ActionResult<ApiResponse<Produto>>> ObterPorId(int id, CancellationToken ct = default)
+    public async Task<ActionResult<ApiResponse<Produto>>> ObterPorId(int produtoId, CancellationToken ct = default)
     {
-        var result = await _mediator.Send(new ObterProdutoPorIdQuery(id) , ct);
+        var query = new ObterProdutoPorIdQuery { ProdutoId = produtoId };
+        
+        var result = await _mediator.Send(query , ct);
+        
         if (result is null)
             return NotFound();
+        
         return Ok(ApiResponse<Produto>.Ok(result));
     }
-    
+
     /// <summary>
     /// Lista todos os produtos.
     /// </summary>
@@ -94,12 +98,9 @@ public class ProdutoController : ControllerBase
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<IActionResult> Editar(int id, [FromBody] EditarProdutoRequest? request, CancellationToken ct = default)
+    public async Task<IActionResult> Editar(int id, [FromBody] EditarProdutoRequest request,
+        CancellationToken ct = default)
     {
-        if (request is  null){
-            
-            throw new Exception("Erro interno ao processar solicitação");
-        }
         var cmd = new EditarProdutoCommand(
             produtoId: id,
             nome: request.Nome,
@@ -108,32 +109,37 @@ public class ProdutoController : ControllerBase
             precoVenda: request.PrecoVenda
         );
         var produtoDto = await _mediator.Send(cmd, ct);
+        
         return Ok(produtoDto);
-
     }
-    
+
     /// <summary>
     /// Inativa um produto.
     /// </summary>
-    [HttpPatch("{id:int}/inativar")]
+    [HttpPatch("{produtoId:int}/inativar")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<IActionResult> Inativar(int id, CancellationToken ct = default)
+    public async Task<IActionResult> Inativar(int produtoId, CancellationToken ct = default)
     {
-        await _mediator.Send(new InativarProdutoCommand(id), ct);
-        return Ok(new { mensagem = $"Produto de Id {id} foi inativado." });    }
+        var query = new InativarProdutoCommand { ProdutoId = produtoId };
+
+        await _mediator.Send(query, ct);
+        
+        return Ok(new { mensagem = $"Produto de Id {produtoId} foi inativado." });
+    }
 
     /// <summary>
     /// Ativa um produto.
     /// </summary>
-    [HttpPatch("{id:int}/ativar")]
+    [HttpPatch("{produtoId:int}/ativar")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<IActionResult> Ativar(int id, CancellationToken ct = default)
+    public async Task<IActionResult> Ativar(int produtoId, CancellationToken ct = default)
     {
-        await _mediator.Send(new AtivarProdutoCommand(id), ct);
-        return Ok(new { mensagem = $"Produto de Id {id} foi ativado." });    }
-    
-    
+        var query = new AtivarProdutoCommand { ProdutoId = produtoId };
 
+        await _mediator.Send(query, ct);
+        
+        return Ok(new { mensagem = $"Produto de Id {produtoId} foi ativado." });
+    }
 }
