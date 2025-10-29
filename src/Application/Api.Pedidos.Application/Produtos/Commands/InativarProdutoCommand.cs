@@ -9,23 +9,28 @@ public class InativarProdutoCommand : IRequest<Unit>
     public int ProdutoId { get; set; }
 
     public InativarProdutoCommand() { }
+    public InativarProdutoCommand(int produtoId) => ProdutoId = produtoId;
 
-    public InativarProdutoCommand(int produtoId)
+    public class Handler : IRequestHandler<InativarProdutoCommand, Unit>
     {
-        ProdutoId = produtoId;
-    }
+        private readonly IProdutoRepository _repo;
+        private readonly IUnitOfWork _uow;
 
-    public class Handler(IProdutoRepository repo, IUnitOfWork uow) : IRequestHandler<InativarProdutoCommand, Unit>
-    {
+        public Handler(IProdutoRepository repo, IUnitOfWork uow)
+        {
+            _repo = repo;
+            _uow = uow;
+        }
+
         public async Task<Unit> Handle(InativarProdutoCommand request, CancellationToken ct)
         {
-            var produto = await repo.GetByIdAsync(request.ProdutoId, ct)
+            var produto = await _repo.GetByIdAsync(request.ProdutoId, ct)
                           ?? throw new Exception("Produto não encontrado.");
 
             produto.Inativar();
 
-             repo.Update(produto);
-            await uow.SaveChangesAsync(ct);
+            await _repo.UpdateAsync(produto, ct);
+            await _uow.SaveChangesAsync(ct);
             return Unit.Value;
         }
     }

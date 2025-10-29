@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "WWhUuE9gCA0=",
+  "dgSpecHash": "TeYtfbpdFCo=",
   "success": true,
-  "projectFilePath": "C:\\Users\\everton.cabral\\RiderProjects\\ApiPedido\\src\\Domain\\Api.Pedidos.Domain\\Api.Pedidos.Domain.csproj",
+  "projectFilePath": "C:\\Users\\Everton\\Projects\\ApiPedido\\src\\Domain\\Api.Pedidos.Domain\\Api.Pedidos.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

@@ -46,7 +46,7 @@ public class EditarProdutoCommand : IRequest<object?>
 
             produto.Editar(request.Nome, request.Descricao, request.Preco, request.PrecoVenda);
 
-             _repo.Update(produto);
+            await _repo.UpdateAsync(produto, ct);
             await _uow.SaveChangesAsync(ct);
             return Unit.Value;
         }

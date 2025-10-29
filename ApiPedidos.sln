@@ -15,10 +15,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "src\tests", "{C832F07E-D3DC-426C-B3EC-A2F2FE2E1B40}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2DA99C86-8E18-4D59-BD5A-174673E83F9A}"
-	ProjectSection(SolutionItems) = preProject
-		..\..\..\..\Projetos\OnPremises-Novo\onpremises\README.md = ..\..\..\..\Projetos\OnPremises-Novo\onpremises\README.md
-		..\..\..\..\Projetos\OnPremises-Novo\onpremises\.gitignore = ..\..\..\..\Projetos\OnPremises-Novo\onpremises\.gitignore
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.Pedidos.Application", "src\Application\Api.Pedidos.Application\Api.Pedidos.Application.csproj", "{8658C639-DA64-4BFC-A657-2D54EDE46275}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -36,8 +32,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.Pedidos.WebApi", "src\P
 		{8658C639-DA64-4BFC-A657-2D54EDE46275} = {8658C639-DA64-4BFC-A657-2D54EDE46275}
 		{107E0924-FF15-419E-8307-3C49B0387776} = {107E0924-FF15-419E-8307-3C49B0387776}
 	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.Pedidos.Tests", "tests\Api.Pedidos.Tests\Api.Pedidos.Tests.csproj", "{D5479FD0-B03F-4E1E-84E0-3FDA1A339D33}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,10 +55,6 @@ Global
 		{DAC4E68F-6215-4BAE-9090-66EFF2A16837}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DAC4E68F-6215-4BAE-9090-66EFF2A16837}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DAC4E68F-6215-4BAE-9090-66EFF2A16837}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D5479FD0-B03F-4E1E-84E0-3FDA1A339D33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D5479FD0-B03F-4E1E-84E0-3FDA1A339D33}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D5479FD0-B03F-4E1E-84E0-3FDA1A339D33}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D5479FD0-B03F-4E1E-84E0-3FDA1A339D33}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{92B5C585-F60F-40C7-B7EB-6D000AC44282} = {63685008-55C2-4639-8551-78083F5DF806}
@@ -75,6 +65,5 @@ Global
 		{8658C639-DA64-4BFC-A657-2D54EDE46275} = {377C3255-AC33-4FA2-B269-BEB46B376381}
 		{107E0924-FF15-419E-8307-3C49B0387776} = {41F6392F-62E0-4D06-BB33-74148D454D2D}
 		{DAC4E68F-6215-4BAE-9090-66EFF2A16837} = {CAFE7461-4F56-4023-BC5E-9EEAD6AA1E92}
-		{D5479FD0-B03F-4E1E-84E0-3FDA1A339D33} = {C832F07E-D3DC-426C-B3EC-A2F2FE2E1B40}
 	EndGlobalSection
 EndGlobal
