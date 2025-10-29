@@ -13,6 +13,16 @@ public class Cliente
     {
     }
 
+    public Cliente(int id, string nome, string email, bool isAtivo, string telefone, Endereco? endereco)
+    {
+        Id = id;
+        Nome = nome;
+        Email = email;
+        IsAtivo = isAtivo;
+        Telefone = telefone;
+        Endereco = endereco;
+    }
+
     public static Cliente Criar(string nome, string email, string telefone, Endereco? endereco = null,
         bool isAtivo = true)
     {
