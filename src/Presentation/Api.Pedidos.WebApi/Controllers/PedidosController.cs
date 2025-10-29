@@ -69,14 +69,14 @@ public class PedidosController : ControllerBase
     [ProducesResponseType(typeof(ApiResponse<object?>), StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<ApiResponse<object>>> IniciarPedido([FromBody] IniciarPedidoRequest request, CancellationToken ct = default)
     {
-        var id = await _mediator.Send(new IniciarPedidoCommand(request.ClienteId), ct);
+        var pedidoId = await _mediator.Send(new IniciarPedidoCommand(request.ClienteId), ct);
 
         var response = ApiResponse<object>.Ok(
-            new { id },
+            new { pedidoId },
             "Pedido iniciado com sucesso.",
             HttpContext.TraceIdentifier);
 
-        return CreatedAtAction(nameof(ObterPorId), new { id }, response);
+        return CreatedAtAction(nameof(ObterPorId), new { pedidoId }, response);
     }
 
     /// <summary>

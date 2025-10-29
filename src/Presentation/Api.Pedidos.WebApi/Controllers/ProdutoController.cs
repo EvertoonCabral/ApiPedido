@@ -56,7 +56,7 @@ public class ProdutoController : ControllerBase
 
         return CreatedAtAction(
             nameof(ObterPorId),
-            new { id = produto.Id },
+            new { produtoId = produto.Id },
             response
         );
     }
@@ -108,10 +108,10 @@ public class ProdutoController : ControllerBase
             precoVenda: request.PrecoVenda
         );
         
-        var produtoDto = await _mediator.Send(cmd, ct);
+        await _mediator.Send(cmd, ct);
         
-        return Ok(produtoDto);
-        
+        return Ok(ApiResponse<Produto?>.Ok(null, "Produto atualizado com sucesso.", HttpContext.TraceIdentifier));
+
     }
     
     /// <summary>
