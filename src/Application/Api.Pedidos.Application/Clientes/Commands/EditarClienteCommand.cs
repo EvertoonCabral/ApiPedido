@@ -63,7 +63,7 @@ public class EditarClienteCommand : IRequest<Cliente>
 
             cliente.Editar(request.Nome, request.Email, request.Telefone, endereco);
 
-            await _repo.UpdateAsync(cliente);
+             _repo.Update(cliente);
             await _uow.SaveChangesAsync(ct);
             return cliente;
         }

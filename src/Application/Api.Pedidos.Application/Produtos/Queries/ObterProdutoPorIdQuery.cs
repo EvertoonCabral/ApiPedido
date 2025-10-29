@@ -8,12 +8,8 @@ namespace Api.Pedidos.Application.Produtos.Queries
 {
     public class ObterProdutoPorIdQuery : IRequest<Produto?>
     {
-        public int Id { get;}
-
-        public ObterProdutoPorIdQuery(int id)
-        {
-            Id = id;
-        }
+        public int ProdutoId { get; set; }
+        
     }
 
     public class ObterProdutoPorIdQueryHandler : IRequestHandler<ObterProdutoPorIdQuery, Produto?>
@@ -29,7 +25,7 @@ namespace Api.Pedidos.Application.Produtos.Queries
 
         public async Task<Produto?> Handle(ObterProdutoPorIdQuery request, CancellationToken cancellationToken)
         {
-            var produto = await _produtoRepo.GetByIdAsync(request.Id, cancellationToken);
+            var produto = await _produtoRepo.GetByIdAsync(request.ProdutoId, cancellationToken);
             if (produto == null) return null;
 
             return produto;

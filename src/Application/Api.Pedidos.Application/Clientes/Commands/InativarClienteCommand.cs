@@ -28,7 +28,7 @@ public class InativarClienteCommand : IRequest<Unit>
 
             cliente.Inativar();
 
-            await _repo.UpdateAsync(cliente);
+             _repo.Update(cliente);
             await _uow.SaveChangesAsync(ct);
             return Unit.Value;
         }

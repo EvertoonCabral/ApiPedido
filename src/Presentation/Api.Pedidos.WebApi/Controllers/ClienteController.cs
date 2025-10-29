@@ -65,11 +65,8 @@ public class ClientesController : ControllerBase
     [HttpPost]
     [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status201Created)]
     [ProducesResponseType(typeof(ApiResponse<object?>), StatusCodes.Status400BadRequest)]
-    public async Task<ActionResult<ApiResponse<object>>> Cadastrar([FromBody] CadastrarClienteRequest? request, CancellationToken ct = default)
+    public async Task<ActionResult<ApiResponse<object>>> Cadastrar([FromBody] CadastrarClienteRequest request, CancellationToken ct = default)
     {
-        if (request is null)
-            return BadRequest(ApiResponse<object?>.Fail("Body inválido.", HttpContext.TraceIdentifier));
-        
         var cmd = new CadastrarClienteCommand(
             nome: request.Nome,
             email: request.Email,
@@ -96,11 +93,8 @@ public class ClientesController : ControllerBase
     [HttpPut("{id:int}")]
     [ProducesResponseType(typeof(ApiResponse<ClienteDto?>), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(ApiResponse<ClienteDto?>), StatusCodes.Status400BadRequest)]
-    public async Task<ActionResult<ApiResponse<ClienteDto?>>> Editar(int id, [FromBody] EditarClienteRequest? request, CancellationToken ct = default)
-    {
-        if (request is null)
-            return BadRequest(ApiResponse<ClienteDto?>.Fail("Body inválido.", HttpContext.TraceIdentifier));
-
+    public async Task<ActionResult<ApiResponse<ClienteDto?>>> Editar(int id, [FromBody] EditarClienteRequest request, CancellationToken ct = default){
+        
         var cmd = new EditarClienteCommand(
             id: id,
             nome: request.Nome,

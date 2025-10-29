@@ -29,7 +29,7 @@ public class AtivarProdutoCommand : IRequest<Unit>
 
             produto.Ativar();
 
-            await _repo.UpdateAsync(produto, ct);
+             _repo.Update(produto);
             await _uow.SaveChangesAsync(ct);
             return Unit.Value;
         }

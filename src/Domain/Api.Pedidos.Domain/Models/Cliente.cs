@@ -3,10 +3,10 @@ namespace Api.Pedidos.Domain.Models;
 public class Cliente
 {
     public int Id { get; private set; }
-    public string Nome { get; private set; } = default!;
-    public string Email { get; private set; } = default!;
+    public string Nome { get; private set; } = String.Empty;
+    public string Email { get; private set; } = String.Empty;
     public bool IsAtivo { get; private set; }
-    public string Telefone { get; private set; } = default!;
+    public string Telefone { get; private set; } = String.Empty;
     public Endereco? Endereco { get; private set; }
 
     protected Cliente()

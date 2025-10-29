@@ -45,10 +45,9 @@ public class Repository<T> :  IRepository<T> where T : class
     public virtual async Task AddRangeAsync(IEnumerable<T> entities, CancellationToken ct = default)
         => await DbSet.AddRangeAsync(entities, ct);
 
-    public virtual Task UpdateAsync(T entity, CancellationToken ct = default)
+    public void Update(T entity)
     {
         DbSet.Update(entity);
-        return Task.CompletedTask;
     }
     public virtual async Task DeleteByIdAsync(int id, CancellationToken ct = default)
     {
