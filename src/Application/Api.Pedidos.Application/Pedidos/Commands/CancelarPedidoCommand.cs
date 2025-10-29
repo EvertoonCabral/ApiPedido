@@ -29,14 +29,17 @@ namespace Api.Pedidos.Application.Pedidos.Commands
         public async Task<bool> Handle(CancelarPedidoCommand request, CancellationToken cancellationToken)
         {
             var pedido = await _pedidoRepo.GetWithProdutosByIdAsync(request.PedidoId, cancellationToken);
-            if (pedido == null) return false;
+            if (pedido == null)
+                throw new KeyNotFoundException("Pedido não encontrado.");
 
+            if (pedido.Status == StatusPedido.Cancelado)
+                throw new InvalidOperationException("Pedido já está cancelado.");
 
-            if (pedido.Status == StatusPedido.Cancelado ||  pedido.Status == StatusPedido.Fechado)
-                return false;
+            if (pedido.Status == StatusPedido.Fechado)
+                throw new InvalidOperationException("Não é possível cancelar um pedido já fechado.");
 
             pedido.Status = StatusPedido.Cancelado;
-            pedido.DataAtualizacao = DateTime.Now;
+            pedido.DataAtualizacao = DateTime.UtcNow;
 
             await _uow.SaveChangesAsync(cancellationToken);
             return true;

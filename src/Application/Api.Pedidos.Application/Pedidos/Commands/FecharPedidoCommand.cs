@@ -29,14 +29,17 @@ namespace Api.Pedidos.Application.Pedidos.Commands
         public async Task<bool> Handle(FecharPedidoCommand request, CancellationToken cancellationToken)
         {
             var pedido = await _pedidoRepo.GetWithProdutosByIdAsync(request.PedidoId, cancellationToken);
-            if (pedido == null) return false;
+            if (pedido == null)
+                throw new KeyNotFoundException("Pedido não encontrado.");
 
-            if (!pedido.Itens.Any()) return false;
+            if (pedido.Itens == null || !pedido.Itens.Any())
+                throw new InvalidOperationException("Pedido sem itens não pode ser fechado.");
 
-            if (pedido.Status != StatusPedido.Aberto) return false;
+            if (pedido.Status != StatusPedido.Aberto)
+                throw new InvalidOperationException("Apenas pedidos em status 'Aberto' podem ser fechados.");
 
             pedido.Status = StatusPedido.Fechado;
-            pedido.DataAtualizacao = DateTime.Now;
+            pedido.DataAtualizacao = DateTime.UtcNow;
 
             await _uow.SaveChangesAsync(cancellationToken);
             return true;

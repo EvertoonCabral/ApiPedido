@@ -19,21 +19,35 @@ namespace Api.Pedidos.Application.Pedidos.Commands
     public class IniciarPedidoCommandHandler : IRequestHandler<IniciarPedidoCommand, int>
     {
         private readonly IPedidoRepository _pedidoRepo;
+        private readonly IClienteRepository _clienteRepo;
         private readonly IUnitOfWork _uow;
 
-        public IniciarPedidoCommandHandler(IPedidoRepository pedidoRepo, IUnitOfWork uow)
+        public IniciarPedidoCommandHandler(
+            IPedidoRepository pedidoRepo,
+            IClienteRepository clienteRepo,
+            IUnitOfWork uow)
         {
             _pedidoRepo = pedidoRepo;
+            _clienteRepo = clienteRepo;
             _uow = uow;
         }
 
         public async Task<int> Handle(IniciarPedidoCommand request, CancellationToken cancellationToken)
         {
+            var cliente = await _clienteRepo.GetByIdAsync(request.ClienteId, cancellationToken);
+            if (cliente == null)
+                throw new KeyNotFoundException("Cliente não encontrado.");
+
+            if (!cliente.IsAtivo)
+                throw new InvalidOperationException("Não é possível iniciar pedido para cliente inativo.");
+
+            var agora = DateTime.Now;
+
             var pedido = new Pedido
             {
                 ClienteId = request.ClienteId,
-                DataAbertura = DateTime.Now,
-                DataAtualizacao = DateTime.Now,
+                DataAbertura = agora,
+                DataAtualizacao = agora,
                 Status = StatusPedido.Aberto,
                 Itens = new()
             };
