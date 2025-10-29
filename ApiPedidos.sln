@@ -15,6 +15,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "src\tests", "{C832F07E-D3DC-426C-B3EC-A2F2FE2E1B40}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2DA99C86-8E18-4D59-BD5A-174673E83F9A}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\RiderProjects\PerfumeStoreApi\README.md = ..\..\RiderProjects\PerfumeStoreApi\README.md
+		..\..\RiderProjects\PerfumeStoreApi\.gitignore = ..\..\RiderProjects\PerfumeStoreApi\.gitignore
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.Pedidos.Application", "src\Application\Api.Pedidos.Application\Api.Pedidos.Application.csproj", "{8658C639-DA64-4BFC-A657-2D54EDE46275}"
 	ProjectSection(ProjectDependencies) = postProject
